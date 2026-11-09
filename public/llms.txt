@@ -1,0 +1,23 @@
+# Swayamatics
+
+> Swayamatics is an automation and technology agency. We help businesses automate workflows, integrate systems, and implement intelligent automation that improves operational efficiency.
+
+Swayamatics serves startups, SMEs, and growing companies across manufacturing, healthcare, education, professional services, e-commerce, real estate, financial services, and logistics.
+
+## Services
+
+- AI Agents & Intelligent Automation
+- Business Process Automation
+- CRM & Sales Automation
+- System Integration & API Development
+- Custom Software & Digital Solutions
+- Data & Business Intelligence
+
+## Key pages
+
+- [Services](/services): Full service catalogue
+- [Industries](/industries): Industries served
+- [Solutions](/solutions): Solutions organised by business outcome
+- [About](/about): Company mission, vision, and approach
+- [Insights](/blog): Articles on automation and AI agents
+- [Contact](/contact): Book a consultation

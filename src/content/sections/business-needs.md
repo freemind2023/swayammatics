@@ -1,0 +1,26 @@
+---
+enable: true
+badge: "Industries"
+title: "Industries We <strong>Serve</strong>"
+items:
+  - image: "/images/brands-group-1.png"
+    number: "01"
+    title: "MANUFACTURING"
+    content: "Automate production reporting, inventory tracking, and approval workflows."
+  - image: "/images/brands-group-2.png"
+    number: "02"
+    title: "HEALTHCARE"
+    content: "Streamline intake, scheduling, and administrative workflows."
+  - image: "/images/brands-group-3.png"
+    number: "03"
+    title: "PROFESSIONAL SERVICES"
+    content: "Automate client onboarding, reporting, and internal operations."
+  - image: "/images/brands-group-4.png"
+    number: "04"
+    title: "E-COMMERCE"
+    content: "Connect your store, CRM, and fulfilment systems automatically."
+  - image: "/images/brands-group-5.png"
+    number: "05"
+    title: "LOGISTICS"
+    content: "Automate dispatch, tracking, and operational reporting."
+---

@@ -1,0 +1,39 @@
+{
+  "site": {
+    "title": "Swayamatics",
+    "base_url": "https://www.swayamatics.com",
+    "base_path": "/",
+    "trailing_slash": false,
+    "favicon": "/images/favicon.png",
+    "logo": "/images/logo.png",
+    "logo_width": "160",
+    "logo_height": "45",
+    "logo_text": "Swayamatics"
+  },
+  "settings": {
+    "sticky_header": true
+  },
+  "params": {
+    "contact_form_action": "/api/contact",
+    "checklist_form_action": "/api/contact",
+    "apply_form_action": "/api/contact",
+    "copyright": "Copyright &copy; 2026 <strong>Swayamatics</strong>. All Rights Reserved.",
+    "footer_tagline": "AUTOMATE | INTEGRATE | TRANSFORM",
+    "footer_email": "",
+    "footer_phone": ""
+  },
+  "navigation_button": {
+    "enable": true,
+    "label": "Book a Consultation",
+    "link": "/contact"
+  },
+  "google_tag_manager": {
+    "enable": false,
+    "gtm_id": "GTM-XXXXXX"
+  },
+  "metadata": {
+    "meta_author": "Swayamatics",
+    "meta_image": "/images/og-image.png",
+    "meta_description": "Swayamatics helps businesses automate workflows, integrate systems, and implement intelligent technology that simplifies operations and supports sustainable growth."
+  }
+}

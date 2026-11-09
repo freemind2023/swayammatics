@@ -32,7 +32,64 @@ const toolPaths = tools.map((t) => {
   class="relative w-full max-w-280 mx-auto rounded-4xl overflow-hidden bg-dark ring-1 ring-white/10"
   data-gsap-video-showcase
 >
-  <div class="relative aspect-video w-full automation-flow">
+  <!-- Mobile: simple flexbox flow — the absolute percentage-positioned
+       diagram below assumes a wide canvas and overlaps badly on narrow
+       screens, so phones get a naturally-reflowing version instead. -->
+  <div class="flex md:hidden flex-col items-center gap-8 px-6 py-10 automation-flow-grid relative">
+    <div class="flex items-center gap-3">
+      <div class="flex flex-col items-center gap-1.5">
+        <div class="size-11 rounded-full bg-light ring-1 ring-border grid place-items-center">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" class="text-white">
+            <path d="M4 4h16v12H7l-3 3V4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+          </svg>
+        </div>
+        <span class="text-[10px] font-medium text-text-dark">Your Business</span>
+      </div>
+      <svg width="28" height="12" viewBox="0 0 28 12" fill="none" class="shrink-0">
+        <path d="M0 6h24M24 6l-5-5M24 6l-5 5" stroke="var(--color-primary-light)" stroke-width="1.5" />
+      </svg>
+      <div class="flex flex-col items-center gap-2">
+        <div class="size-16 rounded-full bg-body ring-2 ring-primary-light grid place-items-center agent-pulse">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" class="text-white">
+            <rect x="4" y="8" width="16" height="11" rx="3" stroke="currentColor" stroke-width="1.6" />
+            <path d="M12 8V4M9 4h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+            <circle cx="9" cy="13.5" r="1.4" fill="currentColor" />
+            <circle cx="15" cy="13.5" r="1.4" fill="currentColor" />
+          </svg>
+        </div>
+        <span class="text-xs font-semibold text-white">AI Agent</span>
+      </div>
+      <svg width="28" height="12" viewBox="0 0 28 12" fill="none" class="shrink-0">
+        <path d="M0 6h24M24 6l-5-5M24 6l-5 5" stroke="var(--color-secondary)" stroke-width="1.5" />
+      </svg>
+      <div class="flex flex-col items-center gap-1.5">
+        <div class="size-11 rounded-full bg-light ring-1 ring-border grid place-items-center">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" class="text-secondary">
+            <path d="M5 12.5 10 17 19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+        <span class="text-[10px] font-medium text-text-dark">Automated</span>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap justify-center gap-3">
+      {
+        tools.map((t) => (
+          <div class="flex flex-col items-center gap-1.5 w-16">
+            <div class="size-12 rounded-xl bg-white/95 grid place-items-center shadow-lg p-2.5">
+              <img src={t.icon} alt={t.label} class="size-full object-contain" />
+            </div>
+            <span class="text-[10px] font-medium text-text-dark text-center leading-tight">
+              {t.label}
+            </span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- Tablet/desktop: full animated diagram (needs a wide canvas) -->
+  <div class="relative aspect-video w-full automation-flow hidden md:block">
     <!-- dotted canvas texture -->
     <div class="absolute inset-0 automation-flow-grid"></div>
 

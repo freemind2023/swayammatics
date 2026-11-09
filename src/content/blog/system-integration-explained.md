@@ -5,6 +5,7 @@ description: "What system integration actually means, common integration pattern
 date: 2026-10-22T09:00:00Z
 image: "/images/blog/post-4.png"
 author: "Swayamatics Team"
+author_image: "/images/blog/author-swayamatics.jpg"
 tag: "System Integration"
 read_time: "5 min read"
 categories: ["System Integration"]

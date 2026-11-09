@@ -5,6 +5,7 @@ description: "AI agents and rule-based automation solve different problems. Here
 date: 2026-10-08T09:00:00Z
 image: "/images/blog/post-2.png"
 author: "Swayamatics Team"
+author_image: "/images/blog/author-swayamatics.jpg"
 tag: "AI Agents"
 read_time: "5 min read"
 categories: ["AI Agents"]

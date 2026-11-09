@@ -5,6 +5,7 @@ description: "A practical explanation of business process automation, what it lo
 date: 2026-10-01T09:00:00Z
 image: "/images/blog/post-1.png"
 author: "Swayamatics Team"
+author_image: "/images/blog/author-swayamatics.jpg"
 tag: "Business Automation"
 read_time: "5 min read"
 categories: ["Business Automation"]

@@ -5,6 +5,7 @@ description: "The most common CRM gaps that cause businesses to lose leads, and 
 date: 2026-10-15T09:00:00Z
 image: "/images/blog/post-3.png"
 author: "Swayamatics Team"
+author_image: "/images/blog/author-swayamatics.jpg"
 tag: "CRM Automation"
 read_time: "4 min read"
 categories: ["CRM Automation"]

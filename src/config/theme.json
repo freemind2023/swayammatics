@@ -5,10 +5,10 @@
         "primary": "#0066CC",
         "primary_light": "#00A6E6",
         "secondary": "#FF7A00",
-        "body": "#0B2545",
-        "border": "#1C3A63",
-        "light": "#122F54",
-        "dark": "#071A33"
+        "body": "#001962",
+        "border": "#1C3480",
+        "light": "#0A2A8A",
+        "dark": "#000D3D"
       },
       "text_color": {
         "text": "#D6E0ED",

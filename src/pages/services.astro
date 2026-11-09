@@ -7,6 +7,7 @@ import Faq from "@/layouts/components/Faq.astro";
 import GradientBlob from "@/layouts/components/GradientBlob.astro";
 import ImageMod from "@/layouts/components/ImageMod.astro";
 import ShowcaseCard from "@/layouts/components/ShowcaseCard.astro";
+import VideoShowcase from "@/layouts/components/VideoShowcase.astro";
 import { getListPage } from "@/lib/contentParser.astro";
 import { markdownify } from "@/lib/utils/textConverter";
 import type { Features } from "@/types";
@@ -47,11 +48,7 @@ const featuresData: Features = features.data;
           </div>
         </div>
         <div class="col-12">
-          <ImageMod
-            src={featuresData.banner.image}
-            alt="Automark Dashboard"
-            class="w-full"
-          />
+          <VideoShowcase />
         </div>
       </div>
     </div>

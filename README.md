@@ -1,42 +1,42 @@
-# Automark - Free Tailwind CSS & Astro Starter Website Template
+# Swayamatics
 
-#### Preview
+Marketing site for **Swayamatics** — automation and technology agency.
+AUTOMATE | INTEGRATE | TRANSFORM
 
- - [Demo](https://themewagon.github.io/automark/)
-
-#### Download
- - [Download from ThemeWagon](https://themewagon.com/themes/automark/)
+Built with [Astro](https://astro.build) 7, React 19, and Tailwind CSS 4.
 
 ## Getting Started
 
-1. Clone Repository
+```bash
+pnpm install
+pnpm dev
 ```
-git clone https://github.com/themewagon/automark.git
-```
-2. Install Dependencies
-```
-npm i
-```
-3. Run the development server:
+
+Site runs at `http://localhost:4321`.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm build     # production build
+pnpm preview   # preview the production build locally
+pnpm check     # type-check
+pnpm format    # prettier
 ```
 
-## Author 
-```
-Design and code is completely written by Themefisher and development team. 
-```
+## Project structure
+
+- `src/pages/` — routes. `src/pages/services/[slug].astro` renders individual service pages from `src/data/services.ts`.
+- `src/content/` — editable site copy (homepage, about, services, blog, legal pages) as Markdown/MDX, validated against schemas in `src/content.config.ts`.
+- `src/config/` — site-wide settings: `config.json` (brand/meta/contact), `menu.json` (nav + footer links), `theme.json` (colors/fonts).
+- `src/layouts/components/` — reusable Astro components.
+- `public/images/` — static assets, including `integrations/` and `stack/` (third-party and tech-stack logos).
+
+## Contact form
+
+`src/pages/api/contact.ts` validates submissions, writes leads to **Airtable**, and sends notification + confirmation email via **Resend**. Required env vars are documented in `.env.example` — copy it to `.env` and fill in real credentials before the form will work end-to-end.
+
+## Deployment
+
+Configured for **Vercel** (`@astrojs/vercel` adapter, see `astro.config.mjs`). Cloudflare Workers (`wrangler.jsonc`) and Netlify (`netlify.toml`) configs are also present but unverified for this project.
 
 ## License
 
- - Design and Code is Copyright &copy; <a href="https://themefisher.com/" target="_blank">Themefisher</a>
- - Licensed cover under [MIT]
- - Image license: Demonstration purposes only.
- - Distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+Proprietary — see `LICENSE`. Not for redistribution.

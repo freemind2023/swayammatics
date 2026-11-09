@@ -10,9 +10,54 @@ import { getListPage } from "@/lib/contentParser.astro";
 import { markdownify } from "@/lib/utils/textConverter";
 import Features from "@/partials/Features.astro";
 import type { About } from "@/types";
+import { render } from "astro:content";
 
 const about = await getListPage("about", "-index");
 const aboutData: About = about.data;
+const { Content } = await render(about);
+
+const techStack = [
+  {
+    category: "Frontend",
+    items: [
+      { name: "JavaScript / TypeScript", icon: "/images/stack/typescript.svg" },
+      { name: "React / Next.js", icon: "/images/stack/nextjs.svg" },
+      { name: "shadcn/ui", icon: "/images/stack/shadcn.png" },
+      { name: "Tailwind CSS", icon: "/images/stack/tailwindcss.svg" },
+    ],
+  },
+  {
+    category: "Backend",
+    items: [
+      { name: "Vercel", icon: "/images/stack/vercel.svg" },
+      { name: "AWS", icon: "/images/stack/aws.svg" },
+      { name: "Google Cloud", icon: "/images/stack/gcp.svg" },
+      { name: "Firebase / Supabase", icon: "/images/stack/supabase.svg" },
+      { name: "Node.js / NestJS", icon: "/images/stack/nodejs.svg" },
+      { name: "Python", icon: "/images/stack/python.svg" },
+      { name: "Kubernetes", icon: "/images/stack/kubernetes.svg" },
+    ],
+  },
+  {
+    category: "AI & Data",
+    items: [
+      { name: "MCP Server Setup", icon: "/images/stack/mcp.svg" },
+      { name: "Agentic & Generative Development", icon: "/images/stack/claude.svg" },
+      { name: "Big Data", icon: "/images/icons/innovation.svg" },
+    ],
+  },
+  {
+    category: "Essentials",
+    items: [
+      { name: "Git", icon: "/images/stack/git.svg" },
+      { name: "Bash", icon: "/images/stack/bash.svg" },
+      { name: "Linux", icon: "/images/stack/linux.svg" },
+      { name: "Docker", icon: "/images/stack/docker.webp" },
+      { name: "Leadership", icon: "/images/icons/collaboration.svg" },
+      { name: "Marketing", icon: "/images/icons/result-driven.svg" },
+    ],
+  },
+];
 ---
 
 <Base {...aboutData}>
@@ -248,6 +293,63 @@ const aboutData: About = about.data;
       <Features our_features={aboutData.core_values} />
     )
   }
+
+  <!-- Mission / Vision / Approach -->
+  <section class="section-sm">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-9">
+          <div class="content">
+            <Content />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack -->
+  <section class="section relative isolate overflow-hidden">
+    <div class="container">
+      <div class="section-container">
+        <div class="section-intro centralize">
+          <Badge title="How We Build" />
+          <h2 class="title hasHighlight">
+            Our <strong>Tech Stack</strong>
+          </h2>
+          <p class="subtitle">
+            Technology-agnostic by principle — these are the tools we reach
+            for most, across frontend, backend, AI, and infrastructure.
+          </p>
+        </div>
+        <div class="section-content flex flex-col gap-12">
+          {techStack.map((group) => (
+            <div>
+              <h3 class="text-white font-secondary font-bold text-xl mb-5">
+                {group.category}
+              </h3>
+              <div class="flex flex-wrap gap-4">
+                {group.items.map((item) => (
+                  <div class="flex items-center gap-3 bg-white/5 ring-1 ring-white/10 rounded-2xl px-5 py-4">
+                    <div class="size-9 shrink-0 grid place-items-center">
+                      <img
+                        src={item.icon}
+                        alt={item.name}
+                        class="size-full object-contain"
+                      />
+                    </div>
+                    <span class="text-text font-medium whitespace-nowrap">
+                      {item.name}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+    <GradientBlob />
+  </section>
 
   <!-- FAQ -->
   <Faq />

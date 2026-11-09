@@ -15,13 +15,24 @@ const {
   className,
 }: { title?: string; description?: string; slug?: string; className?: string } =
   Astro.props;
+
+const pageUrl = `${base_url.replace(/\/$/, "")}/blog/${slug ?? ""}`;
+const shareText = title ?? "";
+
+const links = {
+  facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(pageUrl)}`,
+  twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(pageUrl)}&text=${encodeURIComponent(shareText)}`,
+  linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(pageUrl)}`,
+  pinterest: `https://pinterest.com/pin/create/button/?url=${encodeURIComponent(pageUrl)}&description=${encodeURIComponent(description ?? shareText)}`,
+};
 ---
 
 <ul class={`${className}`}>
   <li class="inline-block">
     <a
       aria-label="facebook share button"
-      href={`#!`}
+      href={links.facebook}
+      target="_blank"
       rel="noreferrer noopener"
     >
       <IoLogoFacebook />
@@ -30,7 +41,8 @@ const {
   <li class="inline-block">
     <a
       aria-label="twitter share button"
-      href={`#!`}
+      href={links.twitter}
+      target="_blank"
       rel="noreferrer noopener"
     >
       <IoLogoTwitter />
@@ -39,7 +51,8 @@ const {
   <li class="inline-block">
     <a
       aria-label="linkedin share button"
-      href={`#!`}
+      href={links.linkedin}
+      target="_blank"
       rel="noreferrer noopener"
     >
       <IoLogoLinkedin />
@@ -48,7 +61,8 @@ const {
   <li class="inline-block">
     <a
       aria-label="pinterest share button"
-      href={`#!`}
+      href={links.pinterest}
+      target="_blank"
       rel="noreferrer noopener"
     >
       <IoLogoPinterest />

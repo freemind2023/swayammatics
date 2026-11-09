@@ -1,31 +1,39 @@
 ---
 title: "Terms and Conditions"
-meta_title: ""
-description: "this is meta description"
+meta_title: "Terms and Conditions — Swayamatics"
+description: "Terms governing use of the Swayamatics website."
 image: ""
 draft: false
 ---
 
-#### Responsibility of Contributors
+_Last updated: November 2026_
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus, donec nunc eros, ullamcorper id feugiat quisque aliquam sagittis. Sem turpis sed viverra massa gravida pharetra. Non dui dolor potenti eu dignissim fusce. Ultrices amet, in curabitur a arcu a lectus morbi id. Iaculis erat sagittis in tortor cursus. Molestie urna eu tortor, erat scelerisque eget. Nunc hendrerit sed interdum lacus. Lorem quis viverra sed
+These Terms and Conditions govern your use of this website, operated by Swayamatics.
 
-pretium, aliquam sit. Praesent elementum magna amet, tincidunt eros, nibh in leo. Malesuada purus, lacus, at aliquam suspendisse tempus. Quis tempus amet, velit nascetur sollicitudin. At sollicitudin eget amet in. Eu velit nascetur sollicitudin erhdfvssfvrgss eget viverra nec elementum. Lacus, facilisis tristique lectus in.
+#### Use of This Website
 
-#### Gathering of Personal Information
+This site is provided for informational purposes — to describe Swayamatics' services and to let visitors request a consultation. You agree to use it only for lawful purposes and not to submit false, misleading, or malicious information through our forms.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus, donec nunc eros, ullamcorper id feugiat quisque aliquam sagittis. Sem turpis sed viverra massa gravida pharetra. Non dui dolor potenti eu dignissim fusce. Ultrices amet, in curabitur a arcu a lectus morbi id. Iaculis erat sagittis in tortor cursus. Molestie urna eu tortor, erat scelerisque eget. Nunc hendrerit sed interdum lacus. Lorem quis viverra sed
+#### Service Engagements
 
-#### Protection of Personal- Information
+Information on this website (service descriptions, industries served, solutions) is general in nature and does not constitute a binding offer or contract. Any actual engagement with Swayamatics is governed by a separate agreement entered into directly with us.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus, donec nunc eros, ullamcorper id feugiat quisque aliquam sagittis. Sem turpis sed viverra massa gravida pharetra. Non dui dolor potenti eu dignissim fusce. Ultrices amet, in curabitur a arcu a lectus morbi id. Iaculis erat sagittis in tortor cursus.
+#### Intellectual Property
 
-Molestie urna eu tortor, erat scelerisque eget. Nunc hendrerit sed interdum lacus. Lorem quis viverra sed
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus, donec nunc eros, ullamcorper id feugiat
+The content, design, and branding of this website are the property of Swayamatics and may not be copied or reproduced without permission.
 
-#### Privacy Policy Changes
+#### Third-Party Links and Services
 
-1. Sll the Themefisher items are designed to be with the latest , We check all
-2. comments that threaten or harm the reputation of any person or organization
-3. personal information including, but limited to, email addresses, telephone numbers
-4. Any Update come in The technology Customer will get automatic Notification.
+This site may reference or link to third-party tools and platforms. We are not responsible for the content or practices of third-party sites.
+
+#### Limitation of Liability
+
+This website and its content are provided "as is" without warranties of any kind. Swayamatics is not liable for any damages arising from use of this website.
+
+#### Changes to These Terms
+
+We may update these terms from time to time. Continued use of the site after changes constitutes acceptance of the updated terms.
+
+#### Contact
+
+Questions about these terms can be sent via our [contact page](/contact).

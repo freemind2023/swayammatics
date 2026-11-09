@@ -3,22 +3,17 @@ import ImageMod from "@/layouts/components/ImageMod.astro";
 import Base from "@/layouts/Base.astro";
 import ValueCard from "@/layouts/components/ValueCard.astro";
 import BusinessNeeds from "@/layouts/components/BusinessNeeds.astro";
-import PricingSection from "@/layouts/components/PricingSection.astro";
 import ProcessCard from "@/layouts/components/ProcessCard.astro";
 import GradientBlob from "@/layouts/components/GradientBlob.astro";
 import Faq from "@/layouts/components/Faq.astro";
 import CallToAction from "@/layouts/components/CallToAction.astro";
 import VideoShowcase from "@/layouts/components/VideoShowcase.astro";
-import LeadGeneration from "@/layouts/components/LeadGeneration.astro";
-import config from "@/config/config.json";
 import { getListPage } from "@/lib/contentParser.astro";
 import { markdownify } from "@/lib/utils/textConverter";
 import Features from "@/partials/Features.astro";
 import type { Homepage } from "@/types";
 const homepage = await getListPage("homepage", "-index");
 const homepageData: Homepage = homepage.data;
-
-const { checklist_form_action } = config.params;
 ---
 
 <Base>
@@ -515,48 +510,49 @@ const { checklist_form_action } = config.params;
     homepageData.integrations.enable && (
       <section class="section relative isolate max-md:overflow-hidden">
         <div class="container-sm">
-          <div class="section-container">
-            <div class="section-intro centralize">
-              <h2
-                class="title hasHighlight  "
-                set:html={markdownify(homepageData.integrations.title)}
-              />
-            </div>
-            <div class="section-content">
-              <div class="flex items-center justify-center flex-wrap [&>div]:-ml-5">
-                {homepageData.integrations.items.map((item: any) => (
-                  <div class="size-35 bg-text-light/10 backdrop-blur-xl rounded-full grid place-items-center">
-                    <ImageMod
-                      src={item.image}
-                      alt={item.alt}
-                      class="max-h-14 object-contain"
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
+          <div class="section-intro centralize">
+            <h2
+              class="title hasHighlight  "
+              set:html={markdownify(homepageData.integrations.title)}
+            />
           </div>
+        </div>
+        <div class="w-full flex flex-col gap-6 mt-12">
+          {(() => {
+            const items = homepageData.integrations.items;
+            const mid = Math.ceil(items.length / 2);
+            const rowA = items.slice(0, mid);
+            const rowB = items.slice(mid);
+            const chip = (item: any) => (
+              <div class="size-24 md:size-28 shrink-0 bg-text-light/10 backdrop-blur-xl rounded-full grid place-items-center p-5 mx-2">
+                <img
+                  src={item.image}
+                  alt={item.alt}
+                  class="size-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+            );
+            return (
+              <>
+                <div class="marquee-row">
+                  <div class="marquee-track marquee-left">
+                    {[...rowA, ...rowA].map((item) => chip(item))}
+                  </div>
+                </div>
+                <div class="marquee-row">
+                  <div class="marquee-track marquee-right">
+                    {[...rowB, ...rowB].map((item) => chip(item))}
+                  </div>
+                </div>
+              </>
+            );
+          })()}
         </div>
         <div class="absolute inset-0 grid place-items-center size-full -z-10">
           <div class="size-180 xl:size-225 bg-radial from-primary-light/40 to-transparent from-0% to-70% rounded-full" />
         </div>
       </section>
-    )
-  }
-
-  <!-- Lead Generation -->
-  {
-    homepageData.lead_generation.enable && (
-      <LeadGeneration lead_generation={homepageData.lead_generation} />
-    )
-  }
-
-  {
-    homepageData.pricing.enable && (
-      <PricingSection
-        title={homepageData.pricing.title}
-        content={homepageData.pricing.content}
-      />
     )
   }
 

@@ -1,0 +1,129 @@
+---
+import Base from "@/layouts/Base.astro";
+import BusinessNeeds from "@/layouts/components/BusinessNeeds.astro";
+import CallToAction from "@/layouts/components/CallToAction.astro";
+import Faq from "@/layouts/components/Faq.astro";
+import GradientBlob from "@/layouts/components/GradientBlob.astro";
+import PageHeader from "@/layouts/components/PageHeader.astro";
+import DynamicIcon from "@/helpers/DynamicIcon";
+import { services, type ServiceDetail } from "@/data/services";
+
+export function getStaticPaths() {
+  return services.map((service) => ({
+    params: { slug: service.slug },
+    props: { service },
+  }));
+}
+
+const { service } = Astro.props as { service: ServiceDetail };
+
+const techIcons: Record<string, string> = {
+  OpenAI: "/images/integrations/openai.svg",
+  Claude: "/images/integrations/claude.svg",
+  Gemini: "/images/integrations/gemini.svg",
+  LangChain: "/images/integrations/langchain.svg",
+  "Hugging Face": "/images/integrations/huggingface.svg",
+  n8n: "/images/integrations/n8n.svg",
+  MCP: "/images/stack/mcp.svg",
+  Salesforce: "/images/integrations/salesforce.svg",
+  Airtable: "/images/integrations/airtable.png",
+  Make: "/images/integrations/make.svg",
+  GitHub: "/images/integrations/github.svg",
+  Resend: "/images/integrations/resend.svg",
+  Sanity: "/images/integrations/sanity.svg",
+  Supabase: "/images/stack/supabase.svg",
+  Vercel: "/images/stack/vercel.svg",
+};
+---
+
+<Base
+  title={service.name}
+  meta_title={`${service.name} — Swayamatics`}
+  description={service.description}
+>
+  <!-- Banner -->
+  <PageHeader title={service.name} subtitle={service.tagline} />
+
+  <section class="section-sm pt-0">
+    <div class="container">
+      <div class="row justify-center mb-12">
+        <div class="lg:col-9 text-center">
+          <p class="text-lg text-text mb-8">{service.description}</p>
+          <div class="flex gap-4 justify-center items-center flex-wrap">
+            <a class="btn btn-primary" href="/contact">Book a Consultation</a>
+            <a class="btn btn-outline" href="/services">View All Services</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Problems solved -->
+      <div class="mb-16">
+        <h2 class="text-h5 font-bold text-white mb-6 text-center">
+          Problems this solves
+        </h2>
+        <div class="flex flex-col gap-3 max-w-180 mx-auto">
+          {service.problems.map((problem) => (
+            <div class="bg-body border border-border px-6 py-3.5 rounded-full flex items-center gap-x-3">
+              <svg class="shrink-0" width="18" height="18" viewBox="0 0 20 20" fill="none">
+                <path
+                  d="M9.99999 1.04163C14.9476 1.04163 18.9583 5.05241 18.9583 9.99996C18.9583 14.9475 14.9476 18.9583 9.99999 18.9583C5.05244 18.9583 1.04166 14.9475 1.04166 9.99996C1.04166 5.05241 5.05244 1.04163 9.99999 1.04163ZM8.02571 6.8538C7.69841 6.58685 7.2159 6.6057 6.9108 6.91077C6.60581 7.21587 6.5869 7.6984 6.85383 8.02568L6.9108 8.08915L8.82157 9.99996L6.91161 11.9108C6.5863 12.2362 6.58619 12.7638 6.91161 13.0891C7.23705 13.4143 7.76464 13.4145 8.09 13.0891L9.99999 11.1784L11.91 13.0891L11.9735 13.1461C12.3007 13.413 12.7832 13.394 13.0884 13.0891C13.3934 12.7842 13.4128 12.3015 13.1462 11.9742L13.0884 11.9108L11.1776 9.99996L13.0892 8.08915L13.1462 8.02568C13.4131 7.69839 13.3942 7.21587 13.0892 6.91077C12.7841 6.6057 12.3016 6.58685 11.9742 6.8538L11.9108 6.91077L9.99999 8.82154L8.08918 6.91077L8.02571 6.8538Z"
+                  fill="var(--color-secondary)"
+                />
+              </svg>
+              <span class="font-medium text-white">{problem}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Deliverables -->
+      <div class="rounded-3xl bg-light/6 overflow-hidden mb-16">
+        <div class="p-8 lg:p-12 xl:p-14">
+          <h2 class="text-h3-sm lg:text-h2 font-bold hasHighlight mb-9 lg:mb-12">
+            What's <strong>Included</strong>
+          </h2>
+          <div class="grid sm:grid-cols-2 gap-8 lg:gap-10">
+            {service.deliverables.map((item) => (
+              <article>
+                <div class="size-10 rounded-xl bg-white/6 border border-border grid place-items-center mb-4">
+                  <DynamicIcon icon={item.icon} className="text-text-light text-lg" />
+                </div>
+                <h3 class="text-h5-sm font-bold text-white mb-2">{item.title}</h3>
+                <p class="text-text">{item.content}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Technologies -->
+      <div class="text-center">
+        <h2 class="text-h5 font-bold text-white mb-8">
+          Relevant <strong class="text-primary-light">Technologies</strong>
+        </h2>
+        <div class="flex items-center justify-center flex-wrap gap-4">
+          {service.technologies.map((tech) => (
+            <div class="flex items-center gap-2.5 bg-white/5 ring-1 ring-white/10 rounded-full pl-3 pr-5 py-2.5">
+              <div class="size-7 shrink-0 grid place-items-center">
+                {techIcons[tech] && (
+                  <img src={techIcons[tech]} alt={tech} class="size-full object-contain" />
+                )}
+              </div>
+              <span class="text-text font-medium whitespace-nowrap">{tech}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+    <GradientBlob />
+  </section>
+
+  <!-- Industries -->
+  <BusinessNeeds />
+
+  <!-- FAQ -->
+  <Faq />
+
+  <!-- Call to Action -->
+  <CallToAction />
+</Base>

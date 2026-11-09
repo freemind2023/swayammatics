@@ -16,7 +16,7 @@ banner:
     enable: true
     label: "View Industries We Serve"
     link: "/industries"
-  image: "/images/automark_dashboard.png"
+  image: ""
 
 partners:
   enable: false
@@ -45,7 +45,7 @@ smart_platform:
       classNames: ""
     - title: "Custom Software & Digital Solutions"
       subtitle: "Business dashboards, internal applications, custom portals, and workflow management systems."
-      image: "/images/features/marketing-autopilot.svg"
+      image: "/images/features/automated-marketing-visual.svg"
       classNames: ""
     - title: "Data & Business Intelligence"
       subtitle: "Data integration, reporting automation, business dashboards, data pipelines, and operational analytics."
@@ -73,7 +73,7 @@ service_features:
           content: "Give your team instant answers from your own documentation and systems."
 
     - title: "Business Process <strong>Automation</strong>"
-      image: "/images/features/service-feature-2.svg"
+      image: "/images/features/ai-powered-graph.svg"
       reverse: true
       items:
         - icon: FaDiagramProject

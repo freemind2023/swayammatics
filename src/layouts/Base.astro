@@ -38,7 +38,7 @@ const { title, meta_title, description, image, noindex, canonical } =
       )
     }
     <link rel="shortcut icon" href={config.site.favicon} />
-    <meta name="theme-name" content="automark-astro" />
+    <meta name="theme-name" content="swayamatics" />
     <meta name="msapplication-TileColor" content="#000000" />
     <meta
       name="theme-color"
@@ -126,6 +126,7 @@ const { title, meta_title, description, image, noindex, canonical } =
 
     <!-- Organization structured data -->
     <script
+      is:inline
       type="application/ld+json"
       set:html={JSON.stringify({
         "@context": "https://schema.org",

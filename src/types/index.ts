@@ -9,20 +9,11 @@ export type About = CollectionEntry<"about">["data"];
 export type Contact = CollectionEntry<"contact">["data"];
 export type Homepage = CollectionEntry<"homepage">["data"];
 export type Features = CollectionEntry<"features">["data"];
-export type Pricing = CollectionEntry<"pricing">["data"];
-export type CaseStudy = CollectionEntry<"caseStudy">["data"];
-export type Careers = CollectionEntry<"careers">["data"];
-export type Integrations = CollectionEntry<"integrations">["data"];
 
 // ─── Section Data Types ───────────────────────────────────────────────────────
 
 export type CtaSection = CollectionEntry<"ctaSection">["data"];
 export type FaqSection = CollectionEntry<"faqSection">["data"];
-export type BrandsSection = CollectionEntry<"brandsSection">["data"];
-export type OurStorySection = CollectionEntry<"ourStorySection">["data"];
-export type TestimonialSection = CollectionEntry<"testimonialSection">["data"];
-export type ComparisonRowSection =
-  CollectionEntry<"comparisonRowSection">["data"];
 export type BusinessNeedsSection =
   CollectionEntry<"businessNeedsSection">["data"];
 

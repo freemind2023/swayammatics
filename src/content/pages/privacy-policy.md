@@ -1,31 +1,37 @@
 ---
-title: "Privacy"
-meta_title: ""
-description: "this is meta description"
+title: "Privacy Policy"
+meta_title: "Privacy Policy — Swayamatics"
+description: "How Swayamatics collects, uses, and protects information submitted through this website."
 image: ""
 draft: false
 ---
 
-#### Responsibility of Contributors
+_Last updated: November 2026_
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus, donec nunc eros, ullamcorper id feugiat quisque aliquam sagittis. Sem turpis sed viverra massa gravida pharetra. Non dui dolor potenti eu dignissim fusce. Ultrices amet, in curabitur a arcu a lectus morbi id. Iaculis erat sagittis in tortor cursus. Molestie urna eu tortor, erat scelerisque eget. Nunc hendrerit sed interdum lacus. Lorem quis viverra sed
+This Privacy Policy explains how Swayamatics ("we", "us") handles information collected through this website.
 
-pretium, aliquam sit. Praesent elementum magna amet, tincidunt eros, nibh in leo. Malesuada purus, lacus, at aliquam suspendisse tempus. Quis tempus amet, velit nascetur sollicitudin. At sollicitudin eget amet in. Eu velit nascetur sollicitudin erhdfvssfvrgss eget viverra nec elementum. Lacus, facilisis tristique lectus in.
+#### Information We Collect
 
-#### Gathering of Personal Information
+When you submit our contact form, we collect the information you provide: your name, business email, phone number, company name, website, industry, service of interest, estimated budget, project description, and preferred contact method.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus, donec nunc eros, ullamcorper id feugiat quisque aliquam sagittis. Sem turpis sed viverra massa gravida pharetra. Non dui dolor potenti eu dignissim fusce. Ultrices amet, in curabitur a arcu a lectus morbi id. Iaculis erat sagittis in tortor cursus. Molestie urna eu tortor, erat scelerisque eget. Nunc hendrerit sed interdum lacus. Lorem quis viverra sed
+If analytics is enabled on this site, we may also collect standard usage data (pages visited, general location, device/browser type) through Google Analytics.
 
-#### Protection of Personal- Information
+#### How We Use Information
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus, donec nunc eros, ullamcorper id feugiat quisque aliquam sagittis. Sem turpis sed viverra massa gravida pharetra. Non dui dolor potenti eu dignissim fusce. Ultrices amet, in curabitur a arcu a lectus morbi id. Iaculis erat sagittis in tortor cursus.
+- To respond to your enquiry and follow up about our services
+- To maintain a record of leads and business enquiries internally
+- To understand how visitors use this website, where analytics is enabled
 
-Molestie urna eu tortor, erat scelerisque eget. Nunc hendrerit sed interdum lacus. Lorem quis viverra sed
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus, donec nunc eros, ullamcorper id feugiat
+We do not sell your information. We do not add you to marketing email lists simply because you submitted an enquiry — you are only subscribed to communications you explicitly opt into.
 
-#### Privacy Policy Changes
+#### How Information Is Stored
 
-1. Sll the Themefisher items are designed to be with the latest , We check all
-2. comments that threaten or harm the reputation of any person or organization
-3. personal information including, but limited to, email addresses, telephone numbers
-4. Any Update come in The technology Customer will get automatic Notification.
+Enquiry submissions are stored in our internal CRM (Airtable) and transactional emails are sent via Resend. These providers process data on our behalf under their own security and privacy practices.
+
+#### Your Rights
+
+You may ask us to access, correct, or delete the information we hold about you by contacting us through this site's [contact page](/contact).
+
+#### Changes to This Policy
+
+We may update this policy from time to time. Material changes will be reflected by updating the date above.

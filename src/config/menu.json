@@ -49,23 +49,23 @@
   "footer_resource": [
     {
       "name": "AI Automation",
-      "url": "/services#ai-agents"
+      "url": "/services/ai-automation"
     },
     {
       "name": "AI Agents",
-      "url": "/services#ai-agents"
+      "url": "/services/ai-agents"
     },
     {
       "name": "CRM Automation",
-      "url": "/services#crm-sales-automation"
+      "url": "/services/crm-automation"
     },
     {
       "name": "Workflow Automation",
-      "url": "/services#business-process-automation"
+      "url": "/services/workflow-automation"
     },
     {
       "name": "System Integration",
-      "url": "/services#system-integration"
+      "url": "/services/system-integration"
     }
   ],
   "footer_legal": [

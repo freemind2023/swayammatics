@@ -1,17 +1,192 @@
 ---
-// Hero Showcase
-// - Animated GIF (no sound controls needed)
-// - GSAP scroll animation: starts tilted/scaled, normalizes on scroll (handled by animations.js)
+// Hero Showcase — animated automation-flow diagram (replaces the stock
+// product video/gif with something that actually represents what we do:
+// an AI Agent hub pulling from real tools, orchestrating an outcome).
+const VB_W = 1000;
+const VB_H = 560;
+
+const agent = { x: 500, y: 215, r: 72 };
+const trigger = { x: 95, y: 280, r: 42 };
+const outcome = { x: 905, y: 280, r: 42 };
+
+const tools = [
+  { x: 95, y: 470, icon: "/images/integrations/openai.svg", label: "OpenAI" },
+  { x: 255, y: 500, icon: "/images/integrations/claude.svg", label: "Claude" },
+  { x: 415, y: 470, icon: "/images/integrations/gemini.svg", label: "Gemini" },
+  { x: 585, y: 470, icon: "/images/integrations/n8n.svg", label: "n8n" },
+  { x: 745, y: 500, icon: "/images/integrations/huggingface.svg", label: "Hugging Face" },
+  { x: 905, y: 470, icon: "/images/integrations/slack.svg", label: "Slack" },
+];
+
+// Quadratic path from each tool node up into the bottom of the agent node.
+const toolPaths = tools.map((t) => {
+  const midX = (t.x + agent.x) / 2;
+  const midY = Math.min(t.y, agent.y + agent.r) - 40;
+  const targetX = agent.x + (t.x < agent.x ? -1 : t.x > agent.x ? 1 : 0) * 26;
+  const targetY = agent.y + agent.r - 6;
+  return `M ${t.x} ${t.y - 34} Q ${midX} ${midY} ${targetX} ${targetY}`;
+});
 ---
 
 <div
-  class="relative w-full max-w-280 mx-auto rounded-4xl overflow-hidden"
+  class="relative w-full max-w-280 mx-auto rounded-4xl overflow-hidden bg-dark ring-1 ring-white/10"
   data-gsap-video-showcase
 >
-  <img
-    src="/showcase.gif"
-    class="w-full aspect-video object-cover"
-    width="1000"
-    alt="Automark product showcase"
-  />
+  <div class="relative aspect-video w-full automation-flow">
+    <!-- dotted canvas texture -->
+    <div class="absolute inset-0 automation-flow-grid"></div>
+
+    <svg
+      class="absolute inset-0 size-full"
+      viewBox={`0 0 ${VB_W} ${VB_H}`}
+      fill="none"
+      preserveAspectRatio="xMidYMid meet"
+    >
+      <!-- main flow: trigger -> agent -> outcome -->
+      <path
+        d={`M ${trigger.x + trigger.r} ${trigger.y} L ${agent.x - agent.r} ${agent.y}`}
+        stroke="var(--color-primary-light)"
+        stroke-width="2.5"
+        class="flow-main"
+      />
+      <path
+        d={`M ${agent.x + agent.r} ${agent.y} L ${outcome.x - outcome.r} ${outcome.y}`}
+        stroke="var(--color-secondary)"
+        stroke-width="2.5"
+        class="flow-main"
+        style="animation-delay: 0.3s"
+      />
+
+      <!-- tool -> agent dashed data lines -->
+      {
+        toolPaths.map((d, i) => (
+          <path
+            d={d}
+            stroke="var(--color-primary-light)"
+            stroke-width="2"
+            stroke-dasharray="6 7"
+            class="flow-dash"
+            style={`animation-delay: ${(i % 4) * 0.4}s`}
+          />
+        ))
+      }
+
+      <!-- agent glow halo -->
+      <circle
+        cx={agent.x}
+        cy={agent.y}
+        r={agent.r + 26}
+        fill="url(#agentGlow)"
+        class="agent-pulse"
+      />
+      <defs>
+        <radialGradient id="agentGlow">
+          <stop offset="0%" stop-color="var(--color-primary-light)" stop-opacity="0.45" />
+          <stop offset="100%" stop-color="var(--color-primary-light)" stop-opacity="0" />
+        </radialGradient>
+      </defs>
+
+      <!-- trigger node -->
+      <circle cx={trigger.x} cy={trigger.y} r={trigger.r} fill="var(--color-light)" stroke="var(--color-border)" />
+      <!-- outcome node -->
+      <circle cx={outcome.x} cy={outcome.y} r={outcome.r} fill="var(--color-light)" stroke="var(--color-border)" />
+
+      <!-- agent node -->
+      <circle cx={agent.x} cy={agent.y} r={agent.r} fill="var(--color-body)" stroke="var(--color-primary-light)" stroke-width="2" />
+    </svg>
+
+    <!-- HTML overlays: icons + labels positioned in the same coordinate space -->
+    <div
+      class="absolute flex flex-col items-center gap-1.5 -translate-x-1/2 -translate-y-1/2"
+      style={`left:${(trigger.x / VB_W) * 100}%; top:${(trigger.y / VB_H) * 100}%;`}
+    >
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" class="text-white">
+        <path d="M4 4h16v12H7l-3 3V4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+      </svg>
+      <span class="text-[11px] font-medium text-text-dark whitespace-nowrap">Your Business</span>
+    </div>
+
+    <div
+      class="absolute flex flex-col items-center gap-2 -translate-x-1/2 -translate-y-1/2"
+      style={`left:${(agent.x / VB_W) * 100}%; top:${(agent.y / VB_H) * 100}%;`}
+    >
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" class="text-white">
+        <rect x="4" y="8" width="16" height="11" rx="3" stroke="currentColor" stroke-width="1.6" />
+        <path d="M12 8V4M9 4h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+        <circle cx="9" cy="13.5" r="1.4" fill="currentColor" />
+        <circle cx="15" cy="13.5" r="1.4" fill="currentColor" />
+      </svg>
+      <span class="text-sm font-semibold text-white whitespace-nowrap">AI Agent</span>
+    </div>
+
+    <div
+      class="absolute flex flex-col items-center gap-1.5 -translate-x-1/2 -translate-y-1/2"
+      style={`left:${(outcome.x / VB_W) * 100}%; top:${(outcome.y / VB_H) * 100}%;`}
+    >
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" class="text-secondary">
+        <path d="M5 12.5 10 17 19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+      <span class="text-[11px] font-medium text-text-dark whitespace-nowrap">Automated</span>
+    </div>
+
+    {
+      tools.map((t) => (
+        <div
+          class="absolute flex flex-col items-center gap-1.5 -translate-x-1/2 -translate-y-1/2"
+          style={`left:${(t.x / VB_W) * 100}%; top:${(t.y / VB_H) * 100}%;`}
+        >
+          <div class="size-16 rounded-2xl bg-white/95 grid place-items-center shadow-lg p-3">
+            <img src={t.icon} alt={t.label} class="size-full object-contain" />
+          </div>
+          <span class="text-[11px] font-medium text-text-dark whitespace-nowrap">{t.label}</span>
+        </div>
+      ))
+    }
+  </div>
 </div>
+
+<style>
+  .automation-flow-grid {
+    background-image: radial-gradient(
+      var(--color-border) 1px,
+      transparent 1px
+    );
+    background-size: 22px 22px;
+    opacity: 0.5;
+  }
+
+  .flow-main {
+    stroke-dasharray: 6 1000;
+    animation: flow-travel 2.2s linear infinite;
+  }
+
+  .flow-dash {
+    animation: flow-travel 1.8s linear infinite;
+  }
+
+  @keyframes flow-travel {
+    from {
+      stroke-dashoffset: 120;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  .agent-pulse {
+    animation: agent-pulse 2.6s ease-in-out infinite;
+    transform-origin: center;
+  }
+
+  @keyframes agent-pulse {
+    0%,
+    100% {
+      opacity: 0.6;
+      transform: scale(0.96);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.04);
+    }
+  }
+</style>

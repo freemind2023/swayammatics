@@ -1,8 +1,8 @@
 {
-  "name": "swayamatics-site",
+  "name": "swayammatics-site",
   "version": "1.0.0",
-  "description": "Swayamatics is an automation and technology agency",
-  "author": "Swayamatics",
+  "description": "Swayammatics is an automation and technology agency",
+  "author": "Swayammatics",
   "license": "UNLICENSED",
   "packageManager": "pnpm@11.9.0",
   "type": "module",

@@ -1,14 +1,14 @@
 ---
 title: "Privacy Policy"
-meta_title: "Privacy Policy — Swayamatics"
-description: "How Swayamatics collects, uses, and protects information submitted through this website."
+meta_title: "Privacy Policy — Swayammatics"
+description: "How Swayammatics collects, uses, and protects information submitted through this website."
 image: ""
 draft: false
 ---
 
 _Last updated: November 2026_
 
-This Privacy Policy explains how Swayamatics ("we", "us") handles information collected through this website.
+This Privacy Policy explains how Swayammatics ("we", "us") handles information collected through this website.
 
 #### Information We Collect
 

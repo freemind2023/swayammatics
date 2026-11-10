@@ -222,13 +222,13 @@ export const POST: APIRoute = async ({ request }) => {
 
   await sendResendEmail(
     payload.email,
-    "We received your enquiry | Swayamatics",
+    "We received your enquiry | Swayammatics",
     `
       <p>Hello ${payload.full_name},</p>
-      <p>Thank you for reaching out to Swayamatics.</p>
+      <p>Thank you for reaching out to Swayammatics.</p>
       <p>We have received your enquiry and appreciate your interest in working with us.
       Our team will review your requirements and get in touch with you.</p>
-      <p>Regards,<br>Swayamatics Team<br>AUTOMATE | INTEGRATE | TRANSFORM</p>
+      <p>Regards,<br>Swayammatics Team<br>AUTOMATE | INTEGRATE | TRANSFORM</p>
     `,
   );
 

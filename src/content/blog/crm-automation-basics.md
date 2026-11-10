@@ -1,11 +1,11 @@
 ---
 title: "CRM Automation Basics: Where Most Businesses Lose Leads"
-meta_title: "CRM Automation Basics — Swayamatics"
+meta_title: "CRM Automation Basics — Swayammatics"
 description: "The most common CRM gaps that cause businesses to lose leads, and the automations that close them."
 date: 2026-10-15T09:00:00Z
 image: "/images/blog/post-3.png"
-author: "Swayamatics Team"
-author_image: "/images/blog/author-swayamatics.jpg"
+author: "Swayammatics Team"
+author_image: "/images/blog/author-swayammatics.jpg"
 tag: "CRM Automation"
 read_time: "4 min read"
 categories: ["CRM Automation"]

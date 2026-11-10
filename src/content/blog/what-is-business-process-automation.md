@@ -1,11 +1,11 @@
 ---
 title: "What Is Business Process Automation (And When Do You Actually Need It)?"
-meta_title: "What Is Business Process Automation? — Swayamatics"
+meta_title: "What Is Business Process Automation? — Swayammatics"
 description: "A practical explanation of business process automation, what it looks like in practice, and the signs your business is ready for it."
 date: 2026-10-01T09:00:00Z
 image: "/images/blog/post-1.png"
-author: "Swayamatics Team"
-author_image: "/images/blog/author-swayamatics.jpg"
+author: "Swayammatics Team"
+author_image: "/images/blog/author-swayammatics.jpg"
 tag: "Business Automation"
 read_time: "5 min read"
 categories: ["Business Automation"]

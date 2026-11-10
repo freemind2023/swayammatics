@@ -1,13 +1,13 @@
 ---
 title: "About Us"
-meta_title: "About Swayamatics — Automation & Integration Partner"
-description: "Swayamatics is an automation and technology agency helping businesses automate workflows, integrate systems, and implement intelligent technology."
+meta_title: "About Swayammatics — Automation & Integration Partner"
+description: "Swayammatics is an automation and technology agency helping businesses automate workflows, integrate systems, and implement intelligent technology."
 image: ""
 draft: false
 
 page_header:
   title: "Automate. Integrate. <strong>Transform.</strong>"
-  subtitle: "Swayamatics is an automation and technology agency. We help businesses eliminate repetitive work, connect disconnected systems, and implement intelligent automation that supports sustainable growth."
+  subtitle: "Swayammatics is an automation and technology agency. We help businesses eliminate repetitive work, connect disconnected systems, and implement intelligent automation that supports sustainable growth."
   image: "/images/about_hero.png"
 
 stats:

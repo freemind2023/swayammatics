@@ -1,7 +1,7 @@
 ---
 banner:
   title: "Make Your Business Work <strong>Smarter.</strong> Not Harder."
-  content: "Swayamatics helps businesses automate workflows, integrate systems, and implement intelligent technology that simplifies operations and supports sustainable growth."
+  content: "Swayammatics helps businesses automate workflows, integrate systems, and implement intelligent technology that simplifies operations and supports sustainable growth."
   button_primary:
     enable: true
     label: "Book a Consultation"
@@ -55,7 +55,7 @@ value_props:
 
 our_features:
   enable: true
-  title: "Why choose <strong>Swayamatics</strong>"
+  title: "Why choose <strong>Swayammatics</strong>"
   content: "What you can expect from working with us."
   items:
     - logo: "/images/features-menu-icon.svg"

@@ -1,8 +1,8 @@
-# Swayamatics
+# Swayammatics
 
-> Swayamatics is an automation and technology agency. We help businesses automate workflows, integrate systems, and implement intelligent automation that improves operational efficiency.
+> Swayammatics is an automation and technology agency. We help businesses automate workflows, integrate systems, and implement intelligent automation that improves operational efficiency.
 
-Swayamatics serves startups, SMEs, and growing companies across manufacturing, healthcare, education, professional services, e-commerce, real estate, financial services, and logistics.
+Swayammatics serves startups, SMEs, and growing companies across manufacturing, healthcare, education, professional services, e-commerce, real estate, financial services, and logistics.
 
 ## Services
 

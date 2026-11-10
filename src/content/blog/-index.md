@@ -1,6 +1,6 @@
 ---
 title: "Insights"
-meta_title: "Insights — Swayamatics"
+meta_title: "Insights — Swayammatics"
 description: "Practical articles on business automation, AI agents, CRM automation, system integration, and digital transformation."
 image: ""
 draft: false

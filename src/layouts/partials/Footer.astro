@@ -26,7 +26,7 @@ const { main: socialLinks } = social as SocialType;
         <ImageMod
           src={config.site.logo}
           width={156}
-          height={50}
+          height={47}
           class="h-12.5"
           alt="logo"
         />
@@ -43,7 +43,10 @@ const { main: socialLinks } = social as SocialType;
         }
         {
           config.params.footer_phone && (
-            <a class="link mt-4 block" href={`tel:${config.params.footer_phone}`}>
+            <a
+              class="link mt-4 block"
+              href={`tel:${config.params.footer_phone.replace(/\s+/g, "")}`}
+            >
               {config.params.footer_phone}
             </a>
           )

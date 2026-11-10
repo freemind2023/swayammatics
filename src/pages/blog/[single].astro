@@ -50,7 +50,7 @@ const relatedPosts = allPosts.filter((p) => p.id !== post.id).slice(0, 3);
         >
           <span class="inline-flex items-center gap-2">
             <ImageMod
-              src={postData.author_image ?? "/images/blog/author-swayamatics.jpg"}
+              src={postData.author_image ?? "/images/blog/author-swayammatics.jpg"}
               width={24}
               height={24}
               class="size-6 rounded-full"
@@ -134,7 +134,7 @@ const relatedPosts = allPosts.filter((p) => p.id !== post.id).slice(0, 3);
                 title={relPost.data.title}
                 description={relPost.data.description ?? ""}
                 authorImage={
-                  relPost.data.author_image ?? "/images/blog/author-swayamatics.jpg"
+                  relPost.data.author_image ?? "/images/blog/author-swayammatics.jpg"
                 }
                 authorName={relPost.data.author}
                 date={dateFormat(relPost.data.date ?? new Date())}

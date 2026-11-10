@@ -1,6 +1,6 @@
 ---
 title: "Services"
-meta_title: "Services — Swayamatics Automation & Technology Agency"
+meta_title: "Services — Swayammatics Automation & Technology Agency"
 description: "AI agents, business process automation, CRM & sales automation, system integration, custom software, and data & business intelligence."
 image: ""
 draft: false

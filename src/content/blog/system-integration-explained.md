@@ -1,11 +1,11 @@
 ---
 title: "System Integration, Explained: Why Your Tools Should Talk to Each Other"
-meta_title: "System Integration Explained — Swayamatics"
+meta_title: "System Integration Explained — Swayammatics"
 description: "What system integration actually means, common integration patterns, and how to know which systems to connect first."
 date: 2026-10-22T09:00:00Z
 image: "/images/blog/post-4.png"
-author: "Swayamatics Team"
-author_image: "/images/blog/author-swayamatics.jpg"
+author: "Swayammatics Team"
+author_image: "/images/blog/author-swayammatics.jpg"
 tag: "System Integration"
 read_time: "5 min read"
 categories: ["System Integration"]

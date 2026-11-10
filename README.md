@@ -1,6 +1,6 @@
-# Swayamatics
+# Swayammatics
 
-Marketing site for **Swayamatics** — automation and technology agency.
+Marketing site for **Swayammatics** — automation and technology agency.
 AUTOMATE | INTEGRATE | TRANSFORM
 
 Built with [Astro](https://astro.build) 7, React 19, and Tailwind CSS 4.

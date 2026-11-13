@@ -55,3 +55,7 @@ We're an emerging automation and technology partner, built specifically to help 
 **Vision.** Be the technology partner growing businesses turn to when manual work, disconnected tools, or slow processes are holding them back.
 
 **Technology philosophy.** We stay technology-agnostic. We select the right AI models, automation platforms, and integration tools for your specific situation — rather than pushing a single product or stack.
+
+## Part of Practical EduSkills
+
+Swayammatics is an initiative by [Practical EduSkills](https://www.practicaleduskills.com/), bringing the same practical, outcomes-first approach to business automation.

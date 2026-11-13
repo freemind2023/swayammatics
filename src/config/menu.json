@@ -17,6 +17,10 @@
       "url": "/about"
     },
     {
+      "name": "Founding Members",
+      "url": "/founding-members"
+    },
+    {
       "name": "Insights",
       "url": "/blog"
     },
@@ -32,6 +36,10 @@
     {
       "name": "About",
       "url": "/about"
+    },
+    {
+      "name": "Founding Members",
+      "url": "/founding-members"
     },
     {
       "name": "Services",

@@ -1,0 +1,184 @@
+---
+import Base from "@/layouts/Base.astro";
+import CallToAction from "@/layouts/components/CallToAction.astro";
+import GradientBlob from "@/layouts/components/GradientBlob.astro";
+import PageHeader from "@/layouts/components/PageHeader.astro";
+
+const industries = [
+  {
+    number: "01",
+    name: "Manufacturing",
+    title: "Make Operations More Connected and Visible.",
+    intro:
+      "Manufacturing businesses manage complex workflows across production, inventory, quality, procurement and dispatch.",
+    items: [
+      "Production reporting automation",
+      "Inventory and procurement workflows",
+      "Quality approval processes",
+      "Vendor coordination",
+      "Management reporting",
+    ],
+  },
+  {
+    number: "02",
+    name: "Healthcare",
+    title: "Reduce Administrative Complexity. Improve Operational Coordination.",
+    intro:
+      "Healthcare organisations manage multiple administrative and operational processes that require coordination, accuracy and timely information.",
+    items: [
+      "Patient enquiry management",
+      "Appointment coordination",
+      "Document and information workflows",
+      "Administrative process automation",
+      "Internal reporting",
+    ],
+    note: "All healthcare solutions must be designed with appropriate privacy, security and regulatory safeguards.",
+  },
+  {
+    number: "03",
+    name: "Education",
+    title: "Connect Academic Operations and Institutional Management.",
+    intro:
+      "Educational institutions manage admissions, student information, communication, attendance, fee administration and placement activities.",
+    items: [
+      "Admission enquiry management",
+      "Student lifecycle workflows",
+      "Parent communication",
+      "Fee and administrative workflows",
+      "Placement and internship coordination",
+      "Institutional reporting",
+    ],
+  },
+  {
+    number: "04",
+    name: "Professional Services",
+    title: "Simplify Client Management and Service Delivery.",
+    intro:
+      "Professional firms need efficient systems for managing clients, documents, communication and recurring assignments.",
+    items: [
+      "Client onboarding",
+      "Document processing",
+      "Assignment management",
+      "Billing and reporting workflows",
+      "CRM integration",
+    ],
+  },
+  {
+    number: "05",
+    name: "Real Estate & Construction",
+    title: "Connect Leads, Projects, Vendors and Operations.",
+    intro:
+      "Real estate and construction businesses coordinate multiple stakeholders, documents, approvals and project activities.",
+    items: [
+      "Lead management",
+      "Site and project reporting",
+      "Vendor coordination",
+      "Document workflows",
+      "Customer communication",
+      "Project dashboards",
+    ],
+  },
+  {
+    number: "06",
+    name: "Financial & Business Services",
+    title: "Make Information Flow More Efficiently.",
+    intro:
+      "Financial and business service organisations manage large volumes of documents, client information and recurring processes.",
+    items: [
+      "Document processing",
+      "Client onboarding",
+      "Accounting workflow integration",
+      "Reporting automation",
+      "Approval management",
+    ],
+  },
+  {
+    number: "07",
+    name: "E-commerce",
+    title: "Connect Sales, Inventory and Fulfilment.",
+    intro: "",
+    items: [
+      "Order management",
+      "Inventory synchronisation",
+      "Customer communication",
+      "CRM integration",
+      "Returns and support workflows",
+      "Sales reporting",
+    ],
+  },
+  {
+    number: "08",
+    name: "Logistics",
+    title: "Bring Visibility to Operational Coordination.",
+    intro: "",
+    items: [
+      "Dispatch coordination",
+      "Shipment status updates",
+      "Document workflows",
+      "Delivery reporting",
+      "Customer notifications",
+      "Operational dashboards",
+    ],
+  },
+];
+---
+
+<Base
+  title="Industries"
+  meta_title="Industry Automation Solutions | Swayammatics"
+  description="Explore potential automation and integration opportunities across manufacturing, healthcare, education, real estate and other industries."
+>
+  <PageHeader
+    title="Understanding Your Industry. <strong>Solving Your Operational Challenges.</strong>"
+    subtitle="Automation is not a one-size-fits-all exercise. Different industries have different workflows, compliance requirements, operational structures and technology environments. We approach every engagement by understanding the business context before designing the solution."
+  />
+
+  <section class="section-sm pt-0 relative isolate">
+    <div class="container">
+      <div class="grid md:grid-cols-2 gap-6">
+        {
+          industries.map((ind) => (
+            <div class="rounded-3xl bg-light/6 p-8 flex flex-col">
+              <div class="flex items-start gap-4 mb-4">
+                <span class="text-h4 font-bold text-primary-light/40 shrink-0">
+                  {ind.number}
+                </span>
+                <div>
+                  <p class="text-primary-light font-semibold text-sm mb-1">
+                    {ind.name}
+                  </p>
+                  <h2 class="text-h5-sm font-bold text-white">{ind.title}</h2>
+                </div>
+              </div>
+              {ind.intro && <p class="text-text mb-5">{ind.intro}</p>}
+              <ul class="flex flex-col gap-2.5 mt-auto">
+                {ind.items.map((item) => (
+                  <li class="flex items-center gap-2.5 text-text text-sm">
+                    <span class="size-1.5 rounded-full bg-primary-light shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              {ind.note && (
+                <p class="text-text-dark text-xs italic mt-5">{ind.note}</p>
+              )}
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="text-center mt-16 max-w-160 mx-auto">
+        <h2 class="text-h5 font-bold text-white mb-3">
+          Don't see your industry listed?
+        </h2>
+        <p class="text-text mb-8">
+          We are interested in understanding different business environments and identifying where technology can create meaningful improvements.
+        </p>
+        <a class="btn btn-primary" href="/contact">Discuss Your Industry Requirements</a>
+      </div>
+    </div>
+    <GradientBlob />
+  </section>
+
+  <CallToAction />
+</Base>

@@ -5,16 +5,27 @@ import CallToAction from "@/layouts/components/CallToAction.astro";
 import Faq from "@/layouts/components/Faq.astro";
 import GradientBlob from "@/layouts/components/GradientBlob.astro";
 import ImageMod from "@/layouts/components/ImageMod.astro";
-import TeamCard from "@/layouts/components/TeamCard.astro";
 import { getListPage } from "@/lib/contentParser.astro";
 import { markdownify } from "@/lib/utils/textConverter";
-import Features from "@/partials/Features.astro";
 import type { About } from "@/types";
 import { render } from "astro:content";
 
 const about = await getListPage("about", "-index");
 const aboutData: About = about.data;
 const { Content } = await render(about);
+
+const leaders = [
+  {
+    name: "Sanmit Shah",
+    role: "Founder & CEO | Business Systems Strategist",
+    image: "/images/team/sanmit-shah.jpg",
+  },
+  {
+    name: "Keegan Francis",
+    role: "Co-Founder & Chief Technology Officer",
+    image: "/images/team/keegan.webp",
+  },
+];
 
 const techStack = [
   {
@@ -234,67 +245,38 @@ const techStack = [
     class="h-px bg-linear-to-r from-transparent from-10% via-white/50 to-90% to-transparent border-0"
   />
 
-  <!-- Stats Section -->
-  {
-    aboutData.stats.enable && (
-      <section class="section relative">
-        <div class="container">
-          <div class="grid grid-cols-2 lg:grid-cols-4 gap-2">
-            {aboutData.stats.items.map((stat: any) => (
-              <div class="text-center p-8 lg:p-10 lg:py-26 rounded-2xl bg-primary/10">
-                <div class="text-h2 lg:text-h1 leading-none font-bold font-secondary text-white mb-4">
-                  {stat.value}
-                </div>
-                <p class="text-text text-h6">{stat.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div class="-translate-y-140">
-          <GradientBlob />
-        </div>
-      </section>
-    )
-  }
-
-  <!-- Meet Our Team Section -->
-  {
-    aboutData.our_team.enable && (
-      <section class="section relative isolate overflow-hidden">
-        <div class="container">
-          <div class="section-container">
-            <div class="section-intro centralize">
-              <Badge title={aboutData.our_team.badge} />
-              <h2
-                class="title hasHighlight"
-                set:html={markdownify(aboutData.our_team.title)}
-              />
-            </div>
-            <div class="section-content">
-              <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
-                {aboutData.our_team.members.map((member: any) => (
-                  <TeamCard
-                    image={member.image}
-                    name={member.name}
-                    role={member.role}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    )
-  }
-
-  <!-- Core Values -->
+  <!-- Our Philosophy -->
   {
     aboutData.core_values.enable && (
-      <Features our_features={aboutData.core_values} />
+      <section class="section relative isolate overflow-hidden">
+        <div class="container">
+          <div class="section-intro centralize">
+            <Badge title={aboutData.core_values.badge ?? ""} />
+            <h2
+              class="title hasHighlight"
+              set:html={markdownify(aboutData.core_values.title)}
+            />
+            <p class="subtitle">{aboutData.core_values.subtitle}</p>
+          </div>
+          <div class="section-content">
+            <div class="grid sm:grid-cols-2 gap-6">
+              {aboutData.core_values.items.map((item: any) => (
+                <div class="bg-body border border-border rounded-2xl p-7">
+                  <h3 class="text-white font-bold text-lg mb-2">
+                    {item.title}
+                  </h3>
+                  <p class="text-text">{item.content}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+        <GradientBlob />
+      </section>
     )
   }
 
-  <!-- Mission / Vision / Approach -->
+  <!-- Our Story / Mission & Vision / Business Model -->
   <section class="section-sm">
     <div class="container">
       <div class="row justify-center">
@@ -302,6 +284,44 @@ const techStack = [
           <div class="content">
             <Content />
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Leadership -->
+  <section class="section relative isolate">
+    <div class="container">
+      <div class="section-intro centralize">
+        <Badge title="Leadership" />
+        <h2 class="title hasHighlight">
+          Business Understanding Meets <strong>Technology Execution.</strong>
+        </h2>
+        <p class="subtitle">
+          Swayammatics is built on the belief that solving business problems requires more than technical knowledge. It requires understanding business operations, identifying opportunities and translating them into practical technology solutions.
+        </p>
+      </div>
+      <div class="section-content">
+        <div class="grid sm:grid-cols-2 gap-8 max-w-180 mx-auto mb-10">
+          {leaders.map((l) => (
+            <div class="text-center">
+              <div class="relative inline-block mb-5">
+                <div class="absolute -inset-1.5 rounded-full bg-linear-to-br from-secondary via-primary to-primary-light opacity-80 blur-sm" />
+                <img
+                  src={l.image}
+                  alt={l.name}
+                  class="relative size-32 rounded-full object-cover ring-4 ring-body shadow-xl"
+                />
+              </div>
+              <h3 class="text-white font-bold">{l.name}</h3>
+              <p class="text-text text-sm">{l.role}</p>
+            </div>
+          ))}
+        </div>
+        <div class="flex justify-center">
+          <a class="btn btn-primary" href="/leadership">
+            Meet Our Leadership
+          </a>
         </div>
       </div>
     </div>

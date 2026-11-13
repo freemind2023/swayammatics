@@ -1,0 +1,146 @@
+---
+import Base from "@/layouts/Base.astro";
+import CallToAction from "@/layouts/components/CallToAction.astro";
+import Faq from "@/layouts/components/Faq.astro";
+import GradientBlob from "@/layouts/components/GradientBlob.astro";
+import PageHeader from "@/layouts/components/PageHeader.astro";
+import DynamicIcon from "@/helpers/DynamicIcon";
+
+const categories = [
+  {
+    number: "01",
+    title: "AI & Intelligent Automation",
+    description:
+      "Use AI to handle information-intensive activities that require interpretation, classification and contextual responses.",
+    capabilities: [
+      { icon: "FaRobot", label: "AI business assistants" },
+      { icon: "FaFileLines", label: "Intelligent document processing" },
+      { icon: "FaHeadset", label: "Customer support automation" },
+      { icon: "FaBrain", label: "Internal knowledge assistants" },
+      { icon: "FaDiagramProject", label: "AI-powered workflow orchestration" },
+    ],
+  },
+  {
+    number: "02",
+    title: "Business Process Automation",
+    description:
+      "Replace repetitive manual tasks with structured, reliable and trackable workflows.",
+    capabilities: [
+      { icon: "FaDiagramProject", label: "Workflow automation" },
+      { icon: "FaCheck", label: "Approval automation" },
+      { icon: "FaKeyboard", label: "Data entry automation" },
+      { icon: "FaChartSimple", label: "Reporting automation" },
+      { icon: "FaGears", label: "Process optimisation" },
+    ],
+  },
+  {
+    number: "03",
+    title: "CRM & Sales Automation",
+    description:
+      "Connect your sales activities, lead management and customer communication processes.",
+    capabilities: [
+      { icon: "FaAddressBook", label: "CRM implementation" },
+      { icon: "FaFilter", label: "Lead capture and qualification" },
+      { icon: "FaChartLine", label: "Sales pipeline automation" },
+      { icon: "FaClock", label: "Follow-up automation" },
+      { icon: "FaArrowsRotate", label: "Customer lifecycle workflows" },
+    ],
+  },
+  {
+    number: "04",
+    title: "System Integration & API Development",
+    description:
+      "Connect existing software platforms and eliminate unnecessary manual data transfer.",
+    capabilities: [
+      { icon: "FaPlug", label: "API integration" },
+      { icon: "FaAddressBook", label: "CRM and ERP integration" },
+      { icon: "FaFileInvoiceDollar", label: "Accounting software integration" },
+      { icon: "FaNetworkWired", label: "Webhook development" },
+      { icon: "FaCode", label: "Custom middleware" },
+      { icon: "FaArrowsRotate", label: "Cross-platform synchronisation" },
+    ],
+  },
+  {
+    number: "05",
+    title: "Custom Software & Business Applications",
+    description:
+      "Build business applications around your specific operational requirements.",
+    capabilities: [
+      { icon: "FaChartSimple", label: "Custom dashboards" },
+      { icon: "FaLaptopCode", label: "Internal business applications" },
+      { icon: "FaUserCheck", label: "Employee and customer portals" },
+      { icon: "FaDiagramProject", label: "Workflow management systems" },
+      { icon: "FaCode", label: "Custom software development" },
+    ],
+  },
+  {
+    number: "06",
+    title: "Business Intelligence & Digital Transformation",
+    description:
+      "Improve management visibility and create a practical roadmap for technology adoption.",
+    capabilities: [
+      { icon: "FaChartSimple", label: "MIS automation" },
+      { icon: "FaChartLine", label: "Business dashboards" },
+      { icon: "FaDatabase", label: "Data integration" },
+      { icon: "FaChartSimple", label: "Operational analytics" },
+      { icon: "FaRoute", label: "Digital transformation consulting" },
+    ],
+  },
+];
+---
+
+<Base
+  title="Solutions"
+  meta_title="Business Automation & AI Solutions | Swayammatics"
+  description="Explore business process automation, AI solutions, CRM automation, system integration, custom applications and business intelligence."
+>
+  <PageHeader
+    title="Solutions Designed Around Your Business. <strong>Not Around Technology Trends.</strong>"
+    subtitle="Every business has different processes, systems and operational challenges. We bring together automation, artificial intelligence, software integration and business process improvement to develop solutions that fit your requirements."
+  />
+
+  <section class="section-sm pt-0 relative isolate">
+    <div class="container">
+      <div class="flex flex-col gap-10">
+        {
+          categories.map((cat) => (
+            <div class="rounded-3xl bg-light/6 overflow-hidden p-8 lg:p-12">
+              <div class="flex items-start gap-5 mb-8">
+                <span class="text-h3 font-bold text-primary-light/40 shrink-0">
+                  {cat.number}
+                </span>
+                <div>
+                  <h2 class="text-h4-sm lg:text-h3-sm font-bold text-white mb-2">
+                    {cat.title}
+                  </h2>
+                  <p class="text-text">{cat.description}</p>
+                </div>
+              </div>
+              <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                {cat.capabilities.map((c) => (
+                  <div class="flex items-center gap-3 bg-white/5 ring-1 ring-white/10 rounded-xl px-4 py-3.5">
+                    <div class="size-9 shrink-0 rounded-lg bg-white/6 border border-border grid place-items-center">
+                      <DynamicIcon icon={c.icon} className="text-text-light text-sm" />
+                    </div>
+                    <span class="text-text font-medium text-sm">{c.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="text-center mt-16 max-w-160 mx-auto">
+        <p class="text-h5-sm text-white font-semibold mb-8">
+          We do not recommend the most complicated solution. We recommend the most appropriate solution for the business problem.
+        </p>
+        <a class="btn btn-primary" href="/contact">Book a Business Consultation</a>
+      </div>
+    </div>
+    <GradientBlob />
+  </section>
+
+  <Faq />
+  <CallToAction />
+</Base>

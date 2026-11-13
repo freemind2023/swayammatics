@@ -1,0 +1,107 @@
+---
+import Base from "@/layouts/Base.astro";
+import CallToAction from "@/layouts/components/CallToAction.astro";
+import PageHeader from "@/layouts/components/PageHeader.astro";
+
+const members = [
+  {
+    name: "Sanmit Shah",
+    role: "Founder & CEO | Business Systems Strategist",
+    image: "/images/team/sanmit-shah.jpg",
+    bio: [
+      "Sanmit Shah is an entrepreneur and problem solver with over two decades of experience in identifying operational gaps and building practical business solutions.",
+      "Founder of Practical EduSkills and HR Wala, he brings a business-first perspective to technology, workforce management and process transformation.",
+      "Through Swayammatics, he focuses on bringing people, processes and technology together to create smarter, more efficient and scalable businesses.",
+    ],
+    focus: [
+      "Business strategy",
+      "Problem identification",
+      "Business process transformation",
+      "Product vision",
+      "Strategic partnerships",
+      "Business development",
+    ],
+  },
+  {
+    name: "Keegan Francis",
+    role: "Co-Founder & Chief Technology Officer",
+    image: "/images/team/keegan.webp",
+    bio: [
+      "Keegan leads the technology and product development vision at Swayammatics.",
+      "With experience in software engineering, systems architecture and technology implementation, he focuses on translating business requirements into scalable technology solutions.",
+    ],
+    focus: [
+      "Technology architecture",
+      "Software engineering",
+      "AI and automation infrastructure",
+      "System integration",
+      "Product development",
+      "Engineering strategy",
+    ],
+  },
+];
+---
+
+<Base
+  title="Leadership"
+  meta_title="Leadership Team | Swayammatics"
+  description="Meet the founders behind Swayammatics and discover their complementary business and technology expertise."
+>
+  <PageHeader
+    title="Business Understanding Meets <strong>Technology Execution.</strong>"
+    subtitle="Swayammatics is built on the belief that solving business problems requires more than technical knowledge. It requires understanding business operations, identifying opportunities and translating them into practical technology solutions."
+  />
+
+  <section class="section-sm pt-0">
+    <div class="container">
+      <div class="flex flex-col gap-16 max-w-220 mx-auto">
+        {
+          members.map((m) => (
+            <div class="flex flex-col sm:flex-row gap-8 sm:gap-10 items-center sm:items-start text-center sm:text-left">
+              <div class="relative shrink-0">
+                <div class="absolute -inset-1.5 rounded-full bg-linear-to-br from-secondary via-primary to-primary-light opacity-80 blur-sm" />
+                <img
+                  src={m.image}
+                  alt={m.name}
+                  class="relative size-40 sm:size-48 rounded-full object-cover ring-4 ring-body shadow-xl"
+                />
+              </div>
+              <div class="flex-1">
+                <h3 class="text-h4 font-bold text-white mb-1">{m.name}</h3>
+                <p class="text-primary-light font-semibold mb-4">{m.role}</p>
+                <div class="flex flex-col gap-3 text-text mb-6">
+                  {m.bio.map((p) => (
+                    <p>{p}</p>
+                  ))}
+                </div>
+                <div>
+                  <p class="text-white font-semibold text-sm mb-2.5">
+                    Focus Areas
+                  </p>
+                  <div class="flex flex-wrap gap-2 justify-center sm:justify-start">
+                    {m.focus.map((f) => (
+                      <span class="text-sm text-text bg-white/5 ring-1 ring-white/10 rounded-full px-4 py-1.5">
+                        {f}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="text-center mt-20 max-w-160 mx-auto">
+        <h2 class="text-h4 font-bold text-white mb-3">
+          Two Perspectives. <strong class="text-primary-light">One Shared Objective.</strong>
+        </h2>
+        <p class="text-text">
+          Understanding the business problem and building the right technology solution.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CallToAction />
+</Base>

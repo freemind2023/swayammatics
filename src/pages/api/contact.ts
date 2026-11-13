@@ -10,8 +10,8 @@ interface ContactPayload {
   company: string;
   website?: string;
   industry: string;
-  service: string;
-  budget?: string;
+  company_size: string;
+  improvements: string[];
   project_description: string;
   preferred_contact_method: string;
   consent: boolean;
@@ -31,7 +31,9 @@ function validate(body: Partial<ContactPayload>): string | null {
   if (!body.phone || !sanitize(body.phone)) return "Phone number is required.";
   if (!body.company || !sanitize(body.company)) return "Company name is required.";
   if (!body.industry) return "Please select an industry.";
-  if (!body.service) return "Please select a service.";
+  if (!body.company_size) return "Please select a company size.";
+  if (!Array.isArray(body.improvements) || body.improvements.length === 0)
+    return "Please select at least one thing you'd like to improve.";
   if (!body.project_description || !sanitize(body.project_description))
     return "Please describe your project.";
   if (!body.preferred_contact_method) return "Please select a preferred contact method.";
@@ -68,8 +70,8 @@ async function createAirtableRecord(
             Company: payload.company,
             Website: payload.website || "",
             Industry: payload.industry,
-            "Service Interested In": payload.service,
-            "Estimated Budget": payload.budget || "",
+            "Company Size": payload.company_size,
+            "What to Improve": payload.improvements.join(", "),
             "Project Description": payload.project_description,
             "Preferred Contact Method": payload.preferred_contact_method,
             Consent: payload.consent,
@@ -180,8 +182,8 @@ export const POST: APIRoute = async ({ request }) => {
     company: sanitize(body.company!),
     website: body.website ? sanitize(body.website) : "",
     industry: body.industry!,
-    service: body.service!,
-    budget: body.budget ? sanitize(body.budget) : "",
+    company_size: body.company_size!,
+    improvements: body.improvements!.map((i) => sanitize(String(i))),
     project_description: sanitize(body.project_description!),
     preferred_contact_method: body.preferred_contact_method!,
     consent: true,
@@ -203,7 +205,7 @@ export const POST: APIRoute = async ({ request }) => {
 
   await sendResendEmail(
     import.meta.env.NOTIFY_EMAIL || import.meta.env.RESEND_FROM_EMAIL,
-    `New enquiry: ${payload.company} (${payload.service})`,
+    `New enquiry: ${payload.company} (${payload.industry})`,
     `
       <p><strong>Name:</strong> ${payload.full_name}</p>
       <p><strong>Email:</strong> ${payload.email}</p>
@@ -211,8 +213,8 @@ export const POST: APIRoute = async ({ request }) => {
       <p><strong>Company:</strong> ${payload.company}</p>
       <p><strong>Website:</strong> ${payload.website || "-"}</p>
       <p><strong>Industry:</strong> ${payload.industry}</p>
-      <p><strong>Service:</strong> ${payload.service}</p>
-      <p><strong>Budget:</strong> ${payload.budget || "-"}</p>
+      <p><strong>Company size:</strong> ${payload.company_size}</p>
+      <p><strong>Wants to improve:</strong> ${payload.improvements.join(", ")}</p>
       <p><strong>Preferred contact method:</strong> ${payload.preferred_contact_method}</p>
       <p><strong>Project description:</strong><br>${payload.project_description.replace(/\n/g, "<br>")}</p>
       <p><strong>Submitted:</strong> ${new Date().toISOString()}</p>

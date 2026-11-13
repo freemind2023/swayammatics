@@ -38,18 +38,6 @@ const aboutCollection = defineCollection({
       subtitle: z.string(),
       image: z.string(),
     }),
-    stats: z.object({
-      enable: z.boolean(),
-      items: z.array(z.object({ value: z.string(), label: z.string() })),
-    }),
-    our_team: z.object({
-      enable: z.boolean(),
-      badge: z.string().optional(),
-      title: z.string(),
-      members: z.array(
-        z.object({ image: z.string(), name: z.string(), role: z.string() }),
-      ),
-    }),
     core_values: z.object({
       enable: z.boolean(),
       badge: z.string().optional(),
@@ -57,9 +45,8 @@ const aboutCollection = defineCollection({
       subtitle: z.string(),
       items: z.array(
         z.object({
-          logo: z.string(),
           title: z.string(),
-          is_starred: z.boolean(),
+          content: z.string(),
         }),
       ),
     }),
@@ -114,7 +101,8 @@ const homepageCollection = defineCollection({
       badge: z.string().optional(),
       title: z.string(),
       content: z.string(),
-      items: z.array(z.string()),
+      items: z.array(z.object({ title: z.string(), content: z.string() })),
+      closing: z.string().optional(),
     }),
     value_props: z.object({
       enable: z.boolean(),
@@ -129,46 +117,6 @@ const homepageCollection = defineCollection({
         }),
       ),
     }),
-    partners: z
-      .object({ badge: z.string().optional(), title: z.string() })
-      .optional(),
-    smart_platform: z
-      .object({
-        badge: z.string().optional(),
-        title: z.string(),
-        content: z.string(),
-        cards: z.array(z.object({ title: z.string(), logo: z.string() })),
-      })
-      .optional(),
-    our_features: z.object({
-      enable: z.boolean(),
-      badge: z.string().optional(),
-      title: z.string(),
-      content: z.string(),
-      items: z.array(
-        z.object({
-          logo: z.string(),
-          title: z.string(),
-          is_starred: z.boolean(),
-        }),
-      ),
-    }),
-    testimonial_quote: z.object({
-      enable: z.boolean(),
-      badge: z.string().optional(),
-      title: z.string(),
-      quote: z.string(),
-    }),
-    single_testimonial: z.object({
-      enable: z.boolean(),
-      stats: z.array(z.object({ value: z.string(), label: z.string() })),
-      testimonial: z.object({
-        quote: z.string(),
-        avatar: z.string(),
-        name: z.string(),
-        company: z.string(),
-      }),
-    }),
     growth_process: z.object({
       enable: z.boolean(),
       badge: z.string().optional(),
@@ -180,6 +128,7 @@ const homepageCollection = defineCollection({
           content: z.string(),
         }),
       ),
+      highlighted_statement: z.string().optional(),
       button: z.object({
         enable: z.boolean(),
         label: z.string(),
@@ -192,64 +141,42 @@ const homepageCollection = defineCollection({
       title: z.string(),
       items: z.array(z.object({ image: z.string(), alt: z.string() })),
     }),
-  }),
-});
-
-const featuresCollection = defineCollection({
-  loader: glob({ pattern: "**/-*.{md,mdx}", base: "src/content/features" }),
-  schema: z.object({
-    ...commonFields,
-    banner: z.object({
+    hr_wala_showcase: z.object({
+      enable: z.boolean(),
+      badge: z.string().optional(),
+      title: z.string(),
+      subtitle: z.string(),
+      content: z.string(),
+      themes: z.array(z.string()),
+      button: z.object({
+        enable: z.boolean(),
+        label: z.string(),
+        link: z.string(),
+      }),
+    }),
+    internal_applications: z.object({
+      enable: z.boolean(),
+      badge: z.string().optional(),
       title: z.string(),
       content: z.string(),
-      button_primary: z.object({
+      items: z.array(z.object({ title: z.string(), content: z.string() })),
+      disclaimer: z.string().optional(),
+      button: z.object({
         enable: z.boolean(),
         label: z.string(),
         link: z.string(),
       }),
-      button_secondary: z.object({
+    }),
+    leadership_teaser: z.object({
+      enable: z.boolean(),
+      badge: z.string().optional(),
+      title: z.string(),
+      content: z.string(),
+      button: z.object({
         enable: z.boolean(),
         label: z.string(),
         link: z.string(),
       }),
-      image: z.string(),
-    }),
-    partners: z.object({
-      enable: z.boolean(),
-      badge: z.string().optional(),
-      title: z.string(),
-    }),
-    smart_platform: z.object({
-      enable: z.boolean(),
-      badge: z.string().optional(),
-      title: z.string(),
-      content: z.string().optional(),
-      cards: z.array(
-        z.object({
-          title: z.string(),
-          subtitle: z.string().optional(),
-          logo: z.string().optional(),
-          image: z.string().optional(),
-          classNames: z.string().optional(),
-        }),
-      ),
-    }),
-    service_features: z.object({
-      enable: z.boolean(),
-      items: z.array(
-        z.object({
-          title: z.string(),
-          image: z.string(),
-          items: z.array(
-            z.object({
-              icon: z.string(),
-              title: z.string(),
-              content: z.string(),
-            }),
-          ),
-          reverse: z.boolean(),
-        }),
-      ),
     }),
   }),
 });
@@ -329,7 +256,6 @@ export const collections = {
   about: aboutCollection,
   contact: contactCollection,
   homepage: homepageCollection,
-  features: featuresCollection,
   ctaSection: ctaSectionCollection,
   faqSection: faqSectionCollection,
   businessNeedsSection: businessNeedsSectionCollection,

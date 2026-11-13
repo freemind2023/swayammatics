@@ -3,15 +3,23 @@ import Base from "@/layouts/Base.astro";
 import CallToAction from "@/layouts/components/CallToAction.astro";
 import Faq from "@/layouts/components/Faq.astro";
 import PageHeader from "@/layouts/components/PageHeader.astro";
-import DynamicIcon from "@/helpers/DynamicIcon";
 import { getListPage } from "@/lib/contentParser.astro";
 import type { Contact } from "@/types";
 
 const contact = await getListPage("contact", "-index");
 const contactData: Contact = contact.data;
-const hasContactInfo = Boolean(
-  contactData.contact_info?.enable && contactData.contact_info.items.length,
-);
+
+const improvementOptions = [
+  "Business Process Automation",
+  "AI & Intelligent Automation",
+  "CRM & Sales Automation",
+  "HR & Workforce Management",
+  "System Integration",
+  "Custom Software",
+  "Business Intelligence",
+  "Digital Transformation",
+  "Not Sure Yet",
+];
 ---
 
 <Base {...contactData}>
@@ -23,52 +31,12 @@ const hasContactInfo = Boolean(
   <!-- Contact Section -->
   <section class="section pt-0">
     <div class="container">
-      <div class="row g-7 max-lg:gap-5">
-        {
-          hasContactInfo && (
-            <div class="col-12 lg:col-5">
-              <div class="flex flex-col gap-5">
-                {contactData.contact_info!.items.map((item) => {
-                  const href =
-                    item.link ||
-                    (item.type === "email"
-                      ? `mailto:${item.detail}`
-                      : item.type === "phone"
-                        ? `tel:${item.detail}`
-                        : undefined);
-
-                  const isExternal = href?.startsWith("http");
-
-                  return (
-                    <a
-                      href={href}
-                      target={isExternal ? "_blank" : undefined}
-                      rel={isExternal ? "noopener noreferrer" : undefined}
-                      class="flex flex-col gap-5 p-7 md:p-8 bg-white/5 rounded-2xl cursor-pointer hover:bg-white/10 transition-all duration-300 ring-1 ring-white/10 hover:ring-primary/50 group hover:scale-[1.02]"
-                    >
-                      <div class="w-10 h-10 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-                        <DynamicIcon
-                          icon={item.icon ?? ""}
-                          className="w-10 h-10 text-white"
-                        />
-                      </div>
-                      <div class="flex flex-col gap-3">
-                        <h3 class="font-secondary font-bold text-2xl text-white">
-                          {item.title}
-                        </h3>
-                        <p class="text-text text-lg">{item.detail}</p>
-                      </div>
-                    </a>
-                  );
-                })}
-              </div>
-            </div>
-          )
-        }
-
-        <!-- Contact Form -->
-        <div class:list={["col-12", hasContactInfo ? "lg:col-7" : "lg:col-10 lg:mx-auto"]}>
+      <div class="row justify-center">
+        <div class="col-12 lg:col-10">
           <div class="p-8 md:p-10 bg-white/5 rounded-2xl">
+            <h2 class="text-h5-sm md:text-h4 font-bold text-white mb-8">
+              Tell Us What You Want to Improve.
+            </h2>
             <form id="contact-form" novalidate class="flex flex-col gap-6">
               <div class="grid sm:grid-cols-2 gap-5">
                 <input
@@ -102,7 +70,7 @@ const hasContactInfo = Boolean(
                 <input
                   type="url"
                   name="website"
-                  placeholder="Website URL (optional)"
+                  placeholder="Website (optional)"
                   class="input-field"
                 />
                 <select name="industry" required class="input-field" data-placeholder-select>
@@ -111,41 +79,51 @@ const hasContactInfo = Boolean(
                   <option>Healthcare</option>
                   <option>Education</option>
                   <option>Professional Services</option>
-                  <option>E-commerce</option>
-                  <option>Real Estate</option>
+                  <option>Real Estate & Construction</option>
                   <option>Financial & Business Services</option>
+                  <option>E-commerce</option>
                   <option>Logistics</option>
                   <option>Other</option>
                 </select>
-                <select name="service" required class="input-field" data-placeholder-select>
-                  <option value="" disabled selected>Service Interested In *</option>
-                  <option>AI Agents & Intelligent Automation</option>
-                  <option>Business Process Automation</option>
-                  <option>CRM & Sales Automation</option>
-                  <option>System Integration & API Development</option>
-                  <option>Custom Software & Digital Solutions</option>
-                  <option>Data & Business Intelligence</option>
-                  <option>Not sure yet</option>
-                </select>
-                <select name="budget" class="input-field" data-placeholder-select>
-                  <option value="" selected>Estimated Project Budget (optional)</option>
-                  <option>Under $2,000</option>
-                  <option>$2,000 – $5,000</option>
-                  <option>$5,000 – $15,000</option>
-                  <option>$15,000+</option>
-                  <option>Not sure yet</option>
+                <select name="company_size" required class="input-field" data-placeholder-select>
+                  <option value="" disabled selected>Company Size *</option>
+                  <option>1–10 employees</option>
+                  <option>11–50 employees</option>
+                  <option>51–200 employees</option>
+                  <option>201–500 employees</option>
+                  <option>500+ employees</option>
                 </select>
                 <select name="preferred_contact_method" required class="input-field" data-placeholder-select>
                   <option value="" disabled selected>Preferred Contact Method *</option>
-                  <option>Email</option>
                   <option>Phone</option>
-                  <option>Either</option>
+                  <option>Email</option>
+                  <option>WhatsApp</option>
+                  <option>Online Meeting</option>
                 </select>
               </div>
 
+              <fieldset class="flex flex-col gap-3">
+                <legend class="text-white font-medium mb-2">
+                  What would you like to improve? *
+                </legend>
+                <div class="grid sm:grid-cols-2 gap-x-5 gap-y-3">
+                  {improvementOptions.map((opt) => (
+                    <label class="flex items-center gap-3 text-text cursor-pointer">
+                      <input
+                        type="checkbox"
+                        name="improvements"
+                        value={opt}
+                        class="size-4 accent-primary"
+                      />
+                      <span>{opt}</span>
+                    </label>
+                  ))}
+                </div>
+              </fieldset>
+
               <textarea
                 name="project_description"
-                placeholder="Tell us about your workflows and what you'd like to automate *"
+                placeholder="Describe Your Business Challenge *"
                 rows={5}
                 required
                 class="input-field resize-none"
@@ -159,7 +137,7 @@ const hasContactInfo = Boolean(
                   class="mt-1 size-4 accent-primary"
                 />
                 <span>
-                  I consent to Swayammatics storing and using this information to respond to my enquiry. *
+                  I consent to Swayammatics using the information submitted to respond to my enquiry, in accordance with its Privacy Policy. *
                 </span>
               </label>
 
@@ -168,7 +146,7 @@ const hasContactInfo = Boolean(
                   id="form-success"
                   class="hidden rounded-2xl bg-green-500/10 border border-green-500/30 px-6 py-4 text-green-400 text-base"
                 >
-                  ✅ Thanks — we've received your enquiry and will be in touch shortly.
+                  ✅ Thank you for reaching out to Swayammatics. Your enquiry has been received. Our team will review your requirements and get in touch.
                 </div>
                 <div
                   id="form-error"
@@ -184,7 +162,7 @@ const hasContactInfo = Boolean(
                   id="contact-submit"
                   class="btn btn-primary w-full py-4 text-lg font-medium transition-opacity disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  <span id="submit-label">Send Enquiry</span>
+                  <span id="submit-label">Submit Enquiry</span>
                   <span id="submit-loading" class="hidden">Sending…</span>
                 </button>
               </div>
@@ -248,6 +226,13 @@ const hasContactInfo = Boolean(
     errorEl?.classList.add("hidden");
 
     const formData = new FormData(form);
+    const improvements = formData.getAll("improvements");
+
+    if (improvements.length === 0) {
+      showError("Please select at least one thing you'd like to improve.");
+      return;
+    }
+
     setLoading(true);
 
     try {
@@ -261,8 +246,8 @@ const hasContactInfo = Boolean(
           company: formData.get("company"),
           website: formData.get("website"),
           industry: formData.get("industry"),
-          service: formData.get("service"),
-          budget: formData.get("budget"),
+          company_size: formData.get("company_size"),
+          improvements,
           project_description: formData.get("project_description"),
           preferred_contact_method: formData.get("preferred_contact_method"),
           consent: formData.get("consent") === "on",

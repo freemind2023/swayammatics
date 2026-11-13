@@ -19,12 +19,12 @@
     "apply_form_action": "/api/contact",
     "copyright": "Copyright &copy; 2026 <strong>Swayammatics</strong>. All Rights Reserved.",
     "footer_tagline": "AUTOMATE | INTEGRATE | TRANSFORM",
-    "footer_email": "info@practicaleduskills.com",
-    "footer_phone": "+91 98909 59990"
+    "footer_email": "",
+    "footer_phone": ""
   },
   "navigation_button": {
     "enable": true,
-    "label": "Book a Consultation",
+    "label": "Book a Business Consultation",
     "link": "/contact"
   },
   "google_tag_manager": {
@@ -34,6 +34,6 @@
   "metadata": {
     "meta_author": "Swayammatics",
     "meta_image": "/images/og-image.png",
-    "meta_description": "Swayammatics helps businesses automate workflows, integrate systems, and implement intelligent technology that simplifies operations and supports sustainable growth."
+    "meta_description": "Swayammatics helps businesses improve operations through AI automation, business process automation, system integration and intelligent technology solutions."
   }
 }

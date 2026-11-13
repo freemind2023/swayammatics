@@ -78,4 +78,13 @@ export default defineConfig({
     remarkPlugins: [remarkToc, [remarkCollapse, { test: "Table of contents" }]],
     shikiConfig: { theme: "one-dark-pro", wrap: true },
   },
+  redirects: {
+    "/founding-members": "/leadership",
+    "/services": "/solutions",
+    "/services/ai-automation": "/solutions",
+    "/services/ai-agents": "/solutions",
+    "/services/crm-automation": "/solutions",
+    "/services/workflow-automation": "/solutions",
+    "/services/system-integration": "/solutions",
+  },
 });

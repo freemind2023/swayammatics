@@ -8,7 +8,6 @@ export type BlogIndex = CollectionEntry<"blogIndex">["data"];
 export type About = CollectionEntry<"about">["data"];
 export type Contact = CollectionEntry<"contact">["data"];
 export type Homepage = CollectionEntry<"homepage">["data"];
-export type Features = CollectionEntry<"features">["data"];
 
 // ─── Section Data Types ───────────────────────────────────────────────────────
 
@@ -29,8 +28,10 @@ export interface Menu {
   footer_col_1_title: string;
   footer_col_2_title: string;
   footer_col_3_title: string;
+  footer_col_4_title: string;
   footer_primary: NavLink[];
   footer_resource: NavLink[];
+  footer_products: NavLink[];
   footer_legal: NavLink[];
 }
 

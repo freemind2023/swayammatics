@@ -10,10 +10,12 @@ import type { Menu, SocialType } from "@/types";
 const {
   footer_primary,
   footer_resource,
+  footer_products,
   footer_legal,
   footer_col_1_title,
   footer_col_2_title,
   footer_col_3_title,
+  footer_col_4_title,
 } = menu as Menu;
 const { main: socialLinks } = social as SocialType;
 ---
@@ -93,9 +95,24 @@ const { main: socialLinks } = social as SocialType;
           }
         </ul>
       </div>
-      <!-- Column 4 - Legal -->
+      <!-- Column 4 - Products -->
       <div>
         <h3 class="footer-label">{footer_col_3_title}</h3>
+        <ul>
+          {
+            footer_products?.map((item) => (
+              <li class="mb-5">
+                <a href={item.url} class="footer-link">
+                  {item.name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <!-- Column 5 - Legal -->
+      <div>
+        <h3 class="footer-label">{footer_col_4_title}</h3>
         <ul>
           {
             footer_legal?.map((item) => (

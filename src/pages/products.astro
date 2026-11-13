@@ -1,0 +1,109 @@
+---
+import Base from "@/layouts/Base.astro";
+import CallToAction from "@/layouts/components/CallToAction.astro";
+import GradientBlob from "@/layouts/components/GradientBlob.astro";
+import PageHeader from "@/layouts/components/PageHeader.astro";
+import DynamicIcon from "@/helpers/DynamicIcon";
+
+const highlights = [
+  { icon: "FaUsers", label: "Integrated HR tools" },
+  { icon: "FaDiagramProject", label: "Connected employee workflows" },
+  { icon: "FaBuilding", label: "Workforce administration" },
+  { icon: "FaGears", label: "HR process automation" },
+  { icon: "FaUserCheck", label: "Employee management" },
+  { icon: "FaChartSimple", label: "Management visibility" },
+];
+
+const themes = [
+  "Employee lifecycle management",
+  "HR operations and administration",
+  "Attendance and leave management",
+  "Performance and employee management",
+  "HR workflows and automation",
+  "Workforce information and reporting",
+];
+---
+
+<Base
+  title="Products"
+  meta_title="Business Technology Products | Swayammatics"
+  description="Explore practical technology products developed by Swayammatics, including HR Wala, an integrated HR operating system."
+>
+  <PageHeader
+    title="Purpose-Built Technology for <strong>Real Business Challenges.</strong>"
+    subtitle="At Swayammatics, we believe technology should not only be implemented for individual clients. It should also be developed into products that solve recurring business problems. We are building an ecosystem of practical technology products designed to simplify business operations and improve productivity."
+  />
+
+  <section class="section-sm pt-0 relative isolate">
+    <div class="container">
+      <!-- Featured Product: HR Wala -->
+      <div class="rounded-3xl bg-light/6 p-8 lg:p-14">
+        <p class="text-primary-light font-semibold text-sm mb-2">
+          Featured Product
+        </p>
+        <h2 class="text-h3-sm lg:text-h2 font-bold text-white mb-3">
+          HR Wala
+        </h2>
+        <p class="text-h6 text-white font-semibold mb-6">
+          37 Tools. One Integrated HR Operating System.
+        </p>
+        <p class="text-text max-w-180 mb-10">
+          HR Wala is an integrated HR operating system designed to simplify workforce
+          management and bring multiple HR functions into one connected platform. From
+          employee information and HR administration to workflows and workforce
+          management, HR Wala aims to make HR operations more structured, accessible
+          and efficient.
+        </p>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+          {
+            highlights.map((h) => (
+              <div class="flex items-center gap-3 bg-white/5 ring-1 ring-white/10 rounded-xl px-4 py-3.5">
+                <div class="size-9 shrink-0 rounded-lg bg-white/6 border border-border grid place-items-center">
+                  <DynamicIcon icon={h.icon} className="text-text-light text-sm" />
+                </div>
+                <span class="text-text font-medium text-sm">{h.label}</span>
+              </div>
+            ))
+          }
+        </div>
+
+        <div class="mb-10">
+          <p class="text-white font-semibold mb-3">Key product themes</p>
+          <div class="flex flex-wrap gap-2.5">
+            {
+              themes.map((t) => (
+                <span class="text-sm text-text bg-white/5 ring-1 ring-white/10 rounded-full px-4 py-1.5">
+                  {t}
+                </span>
+              ))
+            }
+          </div>
+        </div>
+
+        <blockquote class="border-l-2 border-primary-light pl-5 text-text italic mb-10">
+          HR Wala is built around a simple idea: HR should be about empowering people,
+          not getting buried in administration.
+        </blockquote>
+
+        <div class="flex items-center gap-4 flex-wrap">
+          <a class="btn btn-primary" href="/contact">Request an HR Wala Demo</a>
+          <p class="text-text-dark text-sm">HR Wala — A Swayammatics Product.</p>
+        </div>
+      </div>
+
+      <!-- Future Products -->
+      <div class="text-center mt-16 max-w-160 mx-auto">
+        <h2 class="text-h5 font-bold text-white mb-3">
+          More Practical Technology. <strong class="text-primary-light">More Business Possibilities.</strong>
+        </h2>
+        <p class="text-text">
+          We are continuously exploring opportunities to develop purpose-built technology solutions for recurring business challenges. New products will be introduced as they are developed and ready for market.
+        </p>
+      </div>
+    </div>
+    <GradientBlob />
+  </section>
+
+  <CallToAction />
+</Base>

@@ -1,5 +1,4 @@
 ---
-import ImageMod from "@/layouts/components/ImageMod.astro";
 import Base from "@/layouts/Base.astro";
 import ValueCard from "@/layouts/components/ValueCard.astro";
 import BusinessNeeds from "@/layouts/components/BusinessNeeds.astro";
@@ -10,13 +9,16 @@ import CallToAction from "@/layouts/components/CallToAction.astro";
 import VideoShowcase from "@/layouts/components/VideoShowcase.astro";
 import { getListPage } from "@/lib/contentParser.astro";
 import { markdownify } from "@/lib/utils/textConverter";
-import Features from "@/partials/Features.astro";
 import type { Homepage } from "@/types";
 const homepage = await getListPage("homepage", "-index");
 const homepageData: Homepage = homepage.data;
 ---
 
-<Base>
+<Base
+  title="Swayammatics"
+  meta_title="Swayammatics | Business Technology & Automation"
+  description="Swayammatics helps businesses improve operations through AI automation, business process automation, system integration and intelligent technology solutions."
+>
   <!-- Banner -->
   <section class="section-ph relative overflow-hidden">
     <div class="container relative">
@@ -224,54 +226,24 @@ const homepageData: Homepage = homepage.data;
               <p class="subtitle">{homepageData.main_features.content}</p>
             </div>
             <div class="section-content">
-              <div class="feature-items-group mb-9">
-                {homepageData.main_features.items
-                  .slice(0, 3)
-                  .map((text: string) => (
-                    <div class="bg-body border border-border px-4 w-full py-2.5 rounded-full flex items-center justify-center relative z-10 gap-x-2">
-                      <svg
-                        class="shrink-0"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 20 20"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M9.99999 1.04163C14.9476 1.04163 18.9583 5.05241 18.9583 9.99996C18.9583 14.9475 14.9476 18.9583 9.99999 18.9583C5.05244 18.9583 1.04166 14.9475 1.04166 9.99996C1.04166 5.05241 5.05244 1.04163 9.99999 1.04163ZM8.02571 6.8538C7.69841 6.58685 7.2159 6.6057 6.9108 6.91077C6.60581 7.21587 6.5869 7.6984 6.85383 8.02568L6.9108 8.08915L8.82157 9.99996L6.91161 11.9108C6.5863 12.2362 6.58619 12.7638 6.91161 13.0891C7.23705 13.4143 7.76464 13.4145 8.09 13.0891L9.99999 11.1784L11.91 13.0891L11.9735 13.1461C12.3007 13.413 12.7832 13.394 13.0884 13.0891C13.3934 12.7842 13.4128 12.3015 13.1462 11.9742L13.0884 11.9108L11.1776 9.99996L13.0892 8.08915L13.1462 8.02568C13.4131 7.69839 13.3942 7.21587 13.0892 6.91077C12.7841 6.6057 12.3016 6.58685 11.9742 6.8538L11.9108 6.91077L9.99999 8.82154L8.08918 6.91077L8.02571 6.8538Z"
-                          fill="var(--color-secondary)"
-                        />
-                      </svg>
-                      <span class="font-semibold text-white text-lg">
-                        {text}
-                      </span>
-                    </div>
-                  ))}
+              <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+                {homepageData.main_features.items.map((item: any) => (
+                  <div class="bg-body border border-border rounded-2xl p-6">
+                    <h3 class="text-white font-bold mb-2">{item.title}</h3>
+                    <p class="text-text text-sm">{item.content}</p>
+                  </div>
+                ))}
               </div>
-              <div class="feature-items-group">
-                {homepageData.main_features.items
-                  .slice(3)
-                  .map((text: string) => (
-                    <div class="bg-body border border-border px-4 w-full py-2.5 rounded-full flex items-center justify-center relative z-10 gap-x-2">
-                      <svg
-                        class="shrink-0"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 20 20"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M9.99999 1.04163C14.9476 1.04163 18.9583 5.05241 18.9583 9.99996C18.9583 14.9475 14.9476 18.9583 9.99999 18.9583C5.05244 18.9583 1.04166 14.9475 1.04166 9.99996C1.04166 5.05241 5.05244 1.04163 9.99999 1.04163ZM8.02571 6.8538C7.69841 6.58685 7.2159 6.6057 6.9108 6.91077C6.60581 7.21587 6.5869 7.6984 6.85383 8.02568L6.9108 8.08915L8.82157 9.99996L6.91161 11.9108C6.5863 12.2362 6.58619 12.7638 6.91161 13.0891C7.23705 13.4143 7.76464 13.4145 8.09 13.0891L9.99999 11.1784L11.91 13.0891L11.9735 13.1461C12.3007 13.413 12.7832 13.394 13.0884 13.0891C13.3934 12.7842 13.4128 12.3015 13.1462 11.9742L13.0884 11.9108L11.1776 9.99996L13.0892 8.08915L13.1462 8.02568C13.4131 7.69839 13.3942 7.21587 13.0892 6.91077C12.7841 6.6057 12.3016 6.58685 11.9742 6.8538L11.9108 6.91077L9.99999 8.82154L8.08918 6.91077L8.02571 6.8538Z"
-                          fill="var(--color-secondary)"
-                        />
-                      </svg>
-                      <span class="font-semibold text-white text-lg">
-                        {text}
-                      </span>
-                    </div>
-                  ))}
-              </div>
+              {homepageData.main_features.closing && (
+                <div class="text-center">
+                  <p class="text-h6-sm text-white font-semibold mb-7 max-w-180 mx-auto">
+                    {homepageData.main_features.closing}
+                  </p>
+                  <a class="btn btn-primary" href="/contact">
+                    Let's Identify Your Business Challenges
+                  </a>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -302,133 +274,15 @@ const homepageData: Homepage = homepage.data;
                   />
                 ))}
               </div>
+              <div class="flex justify-center">
+                <a class="btn btn-primary" href="/solutions">
+                  Explore All Solutions
+                </a>
+              </div>
             </div>
           </div>
         </div>
         <GradientBlob />
-      </section>
-    )
-  }
-
-  <!-- Features -->
-  {
-    homepageData.our_features.enable && (
-      <Features our_features={homepageData.our_features} />
-    )
-  }
-
-  <!-- Industries Served -->
-  <BusinessNeeds />
-
-  <!-- Testimonial Quote -->
-  {
-    homepageData.testimonial_quote.enable && (
-      <section class="section overflow-hidden">
-        <div class="container">
-          <div class="section-container">
-            <div class="section-intro centralize">
-              <h2
-                class="title hasHighlight  "
-                set:html={markdownify(homepageData.testimonial_quote.title)}
-              />
-            </div>
-            <div class="section-content">
-              <hr class="h-px bg-linear-to-r from-transparent from-5% via-white/40 to-95% to-transparent border-0" />
-              <div class="relative max-w-220 mx-auto">
-                <blockquote class="text-center text-h6 text-white p-6 xl:p-10 xl:px-15 border-x border-text/20">
-                  "{homepageData.testimonial_quote.quote}"
-                </blockquote>
-                <div class="size-2 bg-white absolute left-0 top-0 -translate-x-1/2 -translate-y-1/2" />
-                <div class="size-2 bg-white absolute right-0 top-0 translate-x-1/2 -translate-y-1/2" />
-                <div class="size-2 bg-white absolute left-0 bottom-0 -translate-x-1/2 translate-y-1/2" />
-                <div class="size-2 bg-white absolute right-0 bottom-0 translate-x-1/2 translate-y-1/2" />
-              </div>
-              <hr class="h-px bg-linear-to-r from-transparent from-5% via-white/40 to-95% to-transparent border-0" />
-            </div>
-          </div>
-        </div>
-      </section>
-    )
-  }
-
-  <!-- Single Testimonial -->
-  {
-    homepageData.single_testimonial.enable && (
-      <section class="section relative max-lg:overflow-hidden">
-        <div class="container">
-          <div class="section-container">
-            <div class="section-content">
-              <div class="row g-4 items-center">
-                <div class="lg:col-5">
-                  <div class="flex flex-col">
-                    {homepageData.single_testimonial.stats.map(
-                      (stat: any, i: number) => (
-                        <div
-                          class={`blob-message relative z-${i + 1} ${i === 1 ? "lg:w-10/12" : ""}`}
-                        >
-                          <span class="font-semibold text-white">
-                            {stat.value}
-                          </span>{" "}
-                          {stat.label}
-                        </div>
-                      ),
-                    )}
-                  </div>
-                </div>
-                <div class="lg:col-7 max-lg:mt-10">
-                  <div class="rounded-4xl corner-squircle bg-light px-7 py-10">
-                    <div class="text-white">
-                      <svg
-                        width="45"
-                        height="28"
-                        viewBox="0 0 45 28"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M15.3955 0V10.9561H24.8691L16.5791 28H0L13.0264 0H15.3955ZM36.7109 0V10.9561H45L36.7109 28H21.3154L34.3418 0H36.7109Z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </div>
-                    <blockquote class="mt-10 text-h6 text-white">
-                      {homepageData.single_testimonial.testimonial.quote}
-                    </blockquote>
-                    <div class="mt-12.5 flex items-center">
-                      <div class="text-text-dark">
-                        <ImageMod
-                          height={50}
-                          width={50}
-                          class="rounded-full size-12"
-                          src={
-                            homepageData.single_testimonial.testimonial.avatar
-                          }
-                          alt={homepageData.single_testimonial.testimonial.name}
-                        />
-                      </div>
-                      <div class="ml-2.5">
-                        <h3 class="text-base font-primary font-semibold">
-                          {homepageData.single_testimonial.testimonial.name}
-                        </h3>
-                        <p class="text-text-dark">
-                          {homepageData.single_testimonial.testimonial.company}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="absolute top-0 lg:bottom-0 grid place-items-center size-full lg:translate-y-20 -z-10">
-          <div class="size-180 xl:size-300 bg-radial from-primary-light/60 to-transparent from-0% to-70% rounded-full" />
-          <div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-180">
-            <div class="h-100 w-full overflow-hidden">
-              <canvas class="heroSporeCanvas w-full" />
-            </div>
-          </div>
-        </div>
       </section>
     )
   }
@@ -455,6 +309,11 @@ const homepageData: Homepage = homepage.data;
                   />
                 ))}
               </div>
+              {homepageData.growth_process.highlighted_statement && (
+                <p class="text-center text-h6-sm text-white font-semibold mt-12 max-w-180 mx-auto">
+                  {homepageData.growth_process.highlighted_statement}
+                </p>
+              )}
               {homepageData.growth_process.button.enable && (
                 <div class="flex justify-center mt-10 xl:mt-18">
                   <a
@@ -551,6 +410,125 @@ const homepageData: Homepage = homepage.data;
         </div>
         <div class="absolute inset-0 grid place-items-center size-full -z-10">
           <div class="size-180 xl:size-225 bg-radial from-primary-light/40 to-transparent from-0% to-70% rounded-full" />
+        </div>
+      </section>
+    )
+  }
+
+  <!-- HR Wala Product Showcase -->
+  {
+    homepageData.hr_wala_showcase.enable && (
+      <section class="section relative isolate">
+        <div class="container">
+          <div class="rounded-3xl bg-light/6 p-8 lg:p-14">
+            <div class="lg:max-w-180">
+              <p class="text-primary-light font-semibold text-sm mb-2">
+                {homepageData.hr_wala_showcase.badge}
+              </p>
+              <h2
+                class="text-h3-sm lg:text-h2 font-bold text-white mb-3"
+                set:html={markdownify(homepageData.hr_wala_showcase.title)}
+              />
+              <p class="text-h6 text-white font-semibold mb-5">
+                {homepageData.hr_wala_showcase.subtitle}
+              </p>
+              <p class="text-text mb-8">
+                {homepageData.hr_wala_showcase.content}
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-2.5 mb-10">
+              {homepageData.hr_wala_showcase.themes.map((t: string) => (
+                <span class="text-sm text-text bg-white/5 ring-1 ring-white/10 rounded-full px-4 py-1.5">
+                  {t}
+                </span>
+              ))}
+            </div>
+            {homepageData.hr_wala_showcase.button.enable && (
+              <a
+                class="btn btn-primary"
+                href={homepageData.hr_wala_showcase.button.link}
+              >
+                {homepageData.hr_wala_showcase.button.label}
+              </a>
+            )}
+          </div>
+        </div>
+        <GradientBlob />
+      </section>
+    )
+  }
+
+  <!-- Industries Served -->
+  <BusinessNeeds />
+
+  <!-- Internal Applications & Product Development -->
+  {
+    homepageData.internal_applications.enable && (
+      <section class="section relative isolate">
+        <div class="container">
+          <div class="section-intro centralize">
+            <p class="text-primary-light font-semibold text-sm mb-2">
+              {homepageData.internal_applications.badge}
+            </p>
+            <h2
+              class="title hasHighlight"
+              set:html={markdownify(homepageData.internal_applications.title)}
+            />
+            <p class="subtitle">{homepageData.internal_applications.content}</p>
+          </div>
+          <div class="section-content">
+            <div class="grid md:grid-cols-3 gap-6 mb-8">
+              {homepageData.internal_applications.items.map((item: any) => (
+                <div class="bg-body border border-border rounded-2xl p-6">
+                  <h3 class="text-white font-bold mb-2">{item.title}</h3>
+                  <p class="text-text text-sm">{item.content}</p>
+                </div>
+              ))}
+            </div>
+            {homepageData.internal_applications.disclaimer && (
+              <p class="text-center text-text-dark text-sm italic mb-8">
+                {homepageData.internal_applications.disclaimer}
+              </p>
+            )}
+            {homepageData.internal_applications.button.enable && (
+              <div class="flex justify-center">
+                <a
+                  class="btn btn-primary"
+                  href={homepageData.internal_applications.button.link}
+                >
+                  {homepageData.internal_applications.button.label}
+                </a>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <!-- Leadership Teaser -->
+  {
+    homepageData.leadership_teaser.enable && (
+      <section class="section relative isolate">
+        <div class="container">
+          <div class="rounded-3xl bg-light/6 p-8 lg:p-14 text-center max-w-200 mx-auto">
+            <p class="text-primary-light font-semibold text-sm mb-2">
+              {homepageData.leadership_teaser.badge}
+            </p>
+            <h2
+              class="text-h4-sm lg:text-h3 font-bold text-white mb-4"
+              set:html={markdownify(homepageData.leadership_teaser.title)}
+            />
+            <p class="text-text mb-8">{homepageData.leadership_teaser.content}</p>
+            {homepageData.leadership_teaser.button.enable && (
+              <a
+                class="btn btn-primary"
+                href={homepageData.leadership_teaser.button.link}
+              >
+                {homepageData.leadership_teaser.button.label}
+              </a>
+            )}
+          </div>
         </div>
       </section>
     )

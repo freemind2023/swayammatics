@@ -1,12 +1,12 @@
 ---
-title: "Insights"
+title: "Ideas. Perspectives. Better Ways of Working."
 meta_title: "Insights — Swayammatics"
-description: "Practical articles on business automation, AI agents, CRM automation, system integration, and digital transformation."
+description: "Explore practical perspectives on business automation, artificial intelligence, system integration, operational efficiency and technology-led transformation."
 image: ""
 draft: false
 
 page_header:
-  title: "Insights"
+  title: "Ideas. Perspectives. <strong>Better Ways of Working.</strong>"
   featured_post: "what-is-business-process-automation"
 
 featured_post:

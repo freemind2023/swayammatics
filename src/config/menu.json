@@ -1,24 +1,20 @@
 {
   "main": [
     {
-      "name": "Services",
-      "url": "/services"
-    },
-    {
-      "name": "Industries",
-      "url": "/industries"
+      "name": "About Us",
+      "url": "/about"
     },
     {
       "name": "Solutions",
       "url": "/solutions"
     },
     {
-      "name": "About Us",
-      "url": "/about"
+      "name": "Products",
+      "url": "/products"
     },
     {
-      "name": "Founding Members",
-      "url": "/founding-members"
+      "name": "Industries",
+      "url": "/industries"
     },
     {
       "name": "Insights",
@@ -30,20 +26,25 @@
     }
   ],
   "footer_col_1_title": "Company",
-  "footer_col_2_title": "Services",
-  "footer_col_3_title": "Resources",
+  "footer_col_2_title": "Solutions",
+  "footer_col_3_title": "Products",
+  "footer_col_4_title": "Resources",
   "footer_primary": [
     {
-      "name": "About",
+      "name": "About Us",
       "url": "/about"
     },
     {
-      "name": "Founding Members",
-      "url": "/founding-members"
+      "name": "Leadership",
+      "url": "/leadership"
     },
     {
-      "name": "Services",
-      "url": "/services"
+      "name": "Solutions",
+      "url": "/solutions"
+    },
+    {
+      "name": "Products",
+      "url": "/products"
     },
     {
       "name": "Industries",
@@ -56,24 +57,34 @@
   ],
   "footer_resource": [
     {
-      "name": "AI Automation",
-      "url": "/services/ai-automation"
+      "name": "AI & Intelligent Automation",
+      "url": "/solutions"
     },
     {
-      "name": "AI Agents",
-      "url": "/services/ai-agents"
+      "name": "Business Process Automation",
+      "url": "/solutions"
     },
     {
-      "name": "CRM Automation",
-      "url": "/services/crm-automation"
-    },
-    {
-      "name": "Workflow Automation",
-      "url": "/services/workflow-automation"
+      "name": "CRM & Sales Automation",
+      "url": "/solutions"
     },
     {
       "name": "System Integration",
-      "url": "/services/system-integration"
+      "url": "/solutions"
+    },
+    {
+      "name": "Custom Business Applications",
+      "url": "/solutions"
+    },
+    {
+      "name": "Business Intelligence",
+      "url": "/solutions"
+    }
+  ],
+  "footer_products": [
+    {
+      "name": "HR Wala",
+      "url": "/products"
     }
   ],
   "footer_legal": [

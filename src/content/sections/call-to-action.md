@@ -1,9 +1,9 @@
 ---
 enable: true
-title: "Ready to Automate, Integrate, and <strong>Transform?</strong>"
-description: "Tell us about your current workflows and where things are slowing you down. We'll show you where automation can help."
+title: "Your Next Business Improvement <strong>Starts With a Conversation.</strong>"
+description: "Tell us what is slowing your business down. We will help you identify opportunities where better processes, connected systems and intelligent automation can make a difference."
 button:
   enable: true
-  label: "Book a Consultation"
+  label: "Book a Business Consultation"
   link: "/contact"
 ---
